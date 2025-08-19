@@ -229,6 +229,6 @@ html {
   .burger-menu.open .burger-menu_span:nth-child(3) {
     transform: rotate(-45deg);
     position: relative;
-    top: -7px;
+    top: -6px;
   }
 }/*# sourceMappingURL=style.css.map */

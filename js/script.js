@@ -26,3 +26,14 @@ menuItems.forEach(item => {
 		}
 	});
 });
+
+// Закриття меню при кліку поза меню
+document.addEventListener('click', e => {
+	const isClickInsideMenu =
+		menu.contains(e.target) || burgerMenu.contains(e.target);
+	if (!isClickInsideMenu && menu.classList.contains('open')) {
+		burgerMenu.classList.remove('open');
+		menu.classList.remove('open');
+		document.body.style.overflow = '';
+	}
+});
