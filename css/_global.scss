@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+html {
+	font-family: 'Nunito';
+	background: #f5f6f8;
+	color: #181717;
+	font-weight: 800;
+	scroll-behavior: smooth;
+}
+
+.container {
+	max-width: 1820px;
+	margin: 0 auto;
+	padding: 0 50px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		padding: 0 20px;
+	}
+}

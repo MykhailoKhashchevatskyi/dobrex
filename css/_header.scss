@@ -1,0 +1,98 @@
+.header {
+	padding: 10px 0 5px 0;
+	border-bottom: 0.1px solid rgba(199, 182, 182, 0.303);
+	width: 100vw;
+	position: fixed;
+	&__wrapper {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	&__logo {
+	}
+
+	&__logo-image {
+		max-width: 170px;
+		@media (max-width: 1200px) {
+			max-width: 100px;
+		}
+	}
+
+	&__menu {
+		@media (max-width: 1200px) {
+			max-width: 200px;
+		}
+	}
+
+	&__items {
+		display: flex;
+		justify-content: center;
+		gap: 40px;
+		font-size: 14px;
+		text-transform: uppercase;
+		@media (max-width: 1200px) {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
+
+	&__item {
+	}
+
+	&__link {
+		display: inline-block;
+		transition: 0.5s ease;
+		&:hover {
+			transform: scale(1.01);
+			color: green;
+		}
+	}
+
+	&__ua {
+	}
+
+	&__ua-image {
+		transition: 0.3s ease;
+		max-width: 70px;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.02);
+		}
+		@media (max-width: 1200px) {
+			max-width: 35px;
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@media (max-width: 1200px) {
+			display: none;
+		}
+	}
+
+	&__number {
+		cursor: pointer;
+	}
+
+	&__mail {
+		cursor: pointer;
+	}
+
+	&__basket {
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: white;
+		padding: 7px;
+	}
+
+	&__basket-image {
+    width: 34px;
+		@media (max-width: 1200px) {
+			width: 20px;
+		}
+	}
+}
