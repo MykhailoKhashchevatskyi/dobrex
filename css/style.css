@@ -90,6 +90,7 @@ html {
   border-bottom: 0.1px solid rgba(199, 182, 182, 0.303);
   width: 100vw;
   position: fixed;
+  background-color: #f5f6f8;
 }
 .header__wrapper {
   display: flex;
@@ -172,6 +173,64 @@ html {
 @media (max-width: 1200px) {
   .header__basket-image {
     width: 20px;
+  }
+}
+
+.hero {
+  padding: 70px 0 70px 0;
+  background: url(../img/hero-wallpaper.png) center no-repeat;
+  background-size: cover;
+  border-radius: 0 0 20px 20px;
+}
+@media (max-width: 1200px) {
+  .hero {
+    padding: 40px 0 40px 0;
+  }
+}
+.hero__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hero__time, .hero__title, .hero__text {
+  color: #fff;
+  text-shadow: 0 2px 6px #145a32, 0 0 2px #000, 0 4px 16px rgba(0, 0, 0, 0.8);
+}
+.hero__time {
+  text-transform: uppercase;
+  font-size: 84px;
+  line-height: 85px;
+  margin: 40px 0 40px 0;
+}
+@media (max-width: 1200px) {
+  .hero__time {
+    margin: 40px 0 40px 0;
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+.hero__title {
+  text-transform: uppercase;
+  font-size: 44px;
+  margin: 0 0 30px 0;
+  line-height: 45px;
+}
+@media (max-width: 1200px) {
+  .hero__title {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    line-height: 21px;
+  }
+}
+.hero__text {
+  font-size: 24px;
+  line-height: 26px;
+}
+@media (max-width: 1200px) {
+  .hero__text {
+    font-size: 14px;
+    line-height: 16px;
   }
 }
 
