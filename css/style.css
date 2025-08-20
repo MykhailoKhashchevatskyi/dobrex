@@ -184,7 +184,7 @@ html {
 }
 @media (max-width: 1200px) {
   .hero {
-    padding: 40px 0 40px 0;
+    padding: 40px 0 30px 0;
   }
 }
 .hero__wrapper {
@@ -219,7 +219,7 @@ html {
 @media (max-width: 1200px) {
   .hero__title {
     font-size: 20px;
-    margin: 0 0 10px 0;
+    margin: 0 0 30px 0;
     line-height: 21px;
   }
 }
