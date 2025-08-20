@@ -178,7 +178,7 @@ html {
 
 .hero {
   padding: 70px 0 70px 0;
-  background: url(../img/hero-wallpaper.png) center no-repeat;
+  background: url(../img/1hero-wallpaper.jpg) left no-repeat;
   background-size: cover;
   border-radius: 0 0 20px 20px;
 }
@@ -280,7 +280,7 @@ html {
   .burger-menu.open .burger-menu_span:nth-child(1) {
     transform: rotate(45deg);
     position: relative;
-    top: 10px;
+    top: 8px;
   }
   .burger-menu.open .burger-menu_span:nth-child(2) {
     opacity: 0;
@@ -288,6 +288,6 @@ html {
   .burger-menu.open .burger-menu_span:nth-child(3) {
     transform: rotate(-45deg);
     position: relative;
-    top: -6px;
+    top: -8px;
   }
 }/*# sourceMappingURL=style.css.map */
