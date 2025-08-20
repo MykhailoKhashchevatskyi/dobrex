@@ -195,7 +195,7 @@ html {
 }
 .hero__time, .hero__title, .hero__text {
   color: #fff;
-  text-shadow: 0 2px 6px #145a32, 0 0 2px #000, 0 4px 16px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 6px #0d1210, 0 0 2px #000, 0 4px 16px rgba(0, 0, 0, 0.8);
 }
 .hero__time {
   text-transform: uppercase;
