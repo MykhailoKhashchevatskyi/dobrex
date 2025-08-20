@@ -85,12 +85,12 @@
 	&__basket {
 		cursor: pointer;
 		border-radius: 50%;
-		background-color: white;
+		background-color: rgb(14, 194, 14);
 		padding: 7px;
 	}
 
 	&__basket-image {
-    width: 34px;
+    width: 20px;
 		@media (max-width: 1200px) {
 			width: 20px;
 		}
