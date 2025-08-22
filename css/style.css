@@ -234,6 +234,68 @@ html {
   }
 }
 
+.shop {
+  padding: 20px 0;
+}
+.shop__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.card-item {
+  padding: 10px;
+  background: transparent;
+  border: 1px solid rgba(68, 63, 63, 0.237);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+.card-item:hover {
+  transform: scale(1.02);
+}
+.card-item__img {
+  max-width: 250px;
+  padding: 50px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.card-item__img:hover {
+  transform: scale(2);
+}
+.card-item__name {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  margin: 0 0 10px 0;
+}
+.card-item__price {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+.card-item__btn {
+  border-radius: 3px;
+  background: green;
+  box-shadow: 0 4px 20px 0 rgba(232, 170, 49, 0.43);
+  padding: 5px;
+  font-weight: 400;
+  text-align: center;
+  border-bottom: 1.5px solid rgb(81, 67, 67);
+  cursor: pointer;
+  -moz-user-select: none;
+       user-select: none; /* текст не виділяється */
+  -webkit-user-select: none; /* для Safari */
+  -ms-user-select: none; /* для старих IE */
+  cursor: pointer; /* щоб виглядало як кнопка */
+  color: white;
+}
+.card-item__btn:active {
+  transform: translate(0, 1.5px);
+  border-bottom: 0;
+  margin: 0 0 1.5px 0;
+}
+
 .burger-menu {
   display: none;
   cursor: pointer;
