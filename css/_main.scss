@@ -67,72 +67,103 @@
 
 .shop {
 	padding: 20px 0;
+	margin-top: 48px;
 	&__wrapper {
 	}
 
-	&__box {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 5px;
+	&__title {
+		margin: 0 0 20px 0;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 34px;
+		font-weight: 800;
 	}
 
+	&__box {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 24px;
+		justify-items: center;
+	}
 	&__card {
+		width: 100%;
+		max-width: 300px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 1.2em 0.8em 0.2em 0.8em;
+		font-size: clamp(0.9rem, 2vw, 1.1rem);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: #fff;
+		border-radius: 16px;
+		box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
+		transition: box-shadow 0.2s;
+	}
+	&__img {
+		width: 100%;
+		max-width: 90%;
+		aspect-ratio: 3/4;
+		object-fit: contain;
+		margin-bottom: 1em;
+		border-radius: 10px;
+		background: #f5f6f8;
+		transition: max-width 0.2s, aspect-ratio 0.2s;
+	}
+	&__name {
+		font-size: 1.1em;
+		font-weight: 600;
+		margin-bottom: 0.7em;
+		text-align: center;
+	}
+	&__price {
+		font-size: 1.2em;
+		font-weight: 700;
+		margin-bottom: 1em;
+	}
+	&__btn {
+		padding: 0.6em 1.5em;
+		font-size: 1em;
+		border-radius: 0.5em;
+		background: linear-gradient(90deg, #2ecc40 0%, #27ae60 100%);
+		color: #fff;
+		font-weight: 500;
+		border: none;
+		cursor: pointer;
+		transition: background 0.2s;
+		box-shadow: 0 2px 8px rgba(20, 90, 50, 0.08);
+		&:hover {
+			background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
+		}
+		&:active {
+			transform: translate(0, 1.5px);
+		}
 	}
 }
 
-.card-item {
-	padding: 10px;
-	background: transparent;
-	border: 1px solid rgba(68, 63, 63, 0.237);
-	box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
-	// border-radius: 10px;
-	overflow: hidden;
-	transition: 0.5s ease;
-	&:hover {
-		transform: scale(1.02);
+@media (max-width: 900px) {
+	.shop__box {
+		gap: 16px;
 	}
-	&__img {
-		max-width: 250px;
-		padding: 50px;
-		margin: 0 auto;
-		cursor: pointer;
-		border-radius: 10px;
-		transition: 0.5s ease;
-		&:hover {
-			transform: scale(2);
-		}
+	.shop__img {
+		max-width: 80%;
 	}
+}
 
-	&__name {
-		border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-		font-weight: 400;
-		margin: 0 0 10px 0;
+@media (max-width: 600px) {
+	.shop {
+		margin-top: 24px;
 	}
-
-	&__price {
-		margin: 0 0 10px 0;
-		font-weight: 600;
+	.shop__box {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
 	}
-
-	&__btn {
-		border-radius: 3px;
-		background: green;
-		box-shadow: 0 4px 20px 0 rgba(232, 170, 49, 0.43);
-		padding: 5px;
-		font-weight: 400;
-		text-align: center;
-		border-bottom: 1.5px solid rgb(81, 67, 67);
-		cursor: pointer;
-		user-select: none; /* текст не виділяється */
-		-webkit-user-select: none; /* для Safari */
-		-ms-user-select: none; /* для старих IE */
-		cursor: pointer; /* щоб виглядало як кнопка */
-		color: white;
-		&:active {
-			transform: translate(0, 1.5px);
-			border-bottom: 0;
-			margin: 0 0 1.5px 0;
-		}
+	.shop__card {
+		max-width: 100%;
+		font-size: clamp(0.8rem, 3vw, 1rem);
+		padding: 0.8em 0.4em;
+	}
+	.shop__img {
+		max-width: 70%;
 	}
 }
