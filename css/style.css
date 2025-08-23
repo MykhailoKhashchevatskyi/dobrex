@@ -179,13 +179,15 @@ html {
 
 .hero {
   padding: 70px 0 70px 0;
-  background: url(../img/1hero-wallpaper.jpg) left no-repeat;
+  background: url(../img/bytli.jpg) left center no-repeat;
   background-size: cover;
   border-radius: 0 0 20px 20px;
 }
 @media (max-width: 1200px) {
   .hero {
     padding: 40px 0 30px 0;
+    background: url(../img/bytli.jpg) center no-repeat;
+    background-size: cover;
   }
 }
 .hero__wrapper {
@@ -256,7 +258,9 @@ html {
   gap: 14px;
   justify-items: center;
 }
-.shop__card {
+
+.shop__card,
+.card-item {
   width: 100%;
   max-width: 300px;
   box-sizing: border-box;
@@ -266,15 +270,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.4392156863);
   border-radius: 16px;
   box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
   transition: box-shadow 0.2s;
+  height: 100%;
+  position: relative;
 }
-.shop__card:last-child {
-  justify-content: center;
-}
-.shop__img, .card-item__img {
+
+.shop__img,
+.card-item__img {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 3/4;
@@ -284,10 +289,13 @@ html {
   border-radius: 10px;
   transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
 }
-.shop__img:hover, .card-item__img:hover {
+.shop__img:hover,
+.card-item__img:hover {
   transform: scale(1.1);
 }
-.shop__name, .card-item__name {
+
+.shop__name,
+.card-item__name {
   font-size: 1.1em;
   line-height: 1em;
   font-weight: 600;
@@ -295,16 +303,22 @@ html {
   text-align: center;
 }
 @media (max-width: 600px) {
-  .shop__name, .card-item__name {
+  .shop__name,
+  .card-item__name {
     font-size: 1em;
     line-height: 1.08;
   }
 }
-.shop__price, .card-item__price {
+
+.shop__price,
+.card-item__price {
   font-size: 1.2em;
   font-weight: 700;
+  margin-top: auto;
 }
-.shop__btn, .card-item__btn {
+
+.shop__btn,
+.card-item__btn {
   padding: 0.6em 1.5em;
   font-size: 0.8em;
   border-radius: 0.5em;
@@ -314,24 +328,19 @@ html {
   cursor: pointer;
   transition: background 0.5s;
   box-shadow: 0 2px 8px rgba(20, 90, 50, 0.08);
-}
-.shop__btn:hover, .card-item__btn:hover {
-  background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
-}
-.shop__btn:active, .card-item__btn:active {
-  transform: translate(0, 1.5px);
-}
-
-.card-item__price {
-  margin-top: auto;
-}
-
-.card-item__btn {
   margin-top: 0.5em;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+.shop__btn:hover,
+.card-item__btn:hover {
+  background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
+}
+.shop__btn:active,
+.card-item__btn:active {
+  transform: translate(0, 1.5px);
 }
 
 .card-item__catalog {
@@ -351,25 +360,6 @@ html {
 .card-item__catalog:hover {
   color: #219150;
   text-decoration: underline;
-}
-
-.shop__card,
-.card-item {
-  width: 100%;
-  max-width: 300px;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 1.2em 0.8em 1.2em 0.8em;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
-  transition: box-shadow 0.2s;
-  height: 100%;
-  position: relative;
 }
 
 @media (max-width: 900px) {

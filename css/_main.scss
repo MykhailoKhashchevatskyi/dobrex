@@ -2,11 +2,13 @@
 
 .hero {
 	padding: 70px 0 70px 0;
-	background: url(../img/1hero-wallpaper.jpg) left no-repeat;
+	background: url(../img/bytli.jpg) left center no-repeat;
 	background-size: cover;
 	border-radius: 0 0 20px 20px;
 	@media (max-width: 1200px) {
 		padding: 40px 0 30px 0;
+		background: url(../img/bytli.jpg) center no-repeat;
+		background-size: cover;
 	}
 
 	&__wrapper {
@@ -20,11 +22,7 @@
 	&__title,
 	&__text {
 		color: #fff;
-		text-shadow: 0 2px 6px #0d1210,
-			// насичений темно-зелений
-			0 0 2px #000,
-			// чорний контур
-			0 4px 16px rgba(0, 0, 0, 0.8); // глибока тінь для glow
+		text-shadow: 0 2px 6px #0d1210, 0 0 2px #000, 0 4px 16px rgba(0, 0, 0, 0.8);
 	}
 
 	&__time {
@@ -60,6 +58,7 @@
 		}
 	}
 }
+
 .container {
 }
 
@@ -84,89 +83,87 @@
 		gap: 14px;
 		justify-items: center;
 	}
-	&__card {
-		width: 100%;
-		max-width: 300px;
-		box-sizing: border-box;
-		margin: 0;
-		padding: 1.2em 0.8em 1.2em 0.8em;
-		font-size: clamp(0.9rem, 2vw, 1.1rem);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background: #fff;
-		border-radius: 16px;
-		box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
-		transition: box-shadow 0.2s;
-		&:last-child {
-			justify-content: center;
-		}
-	}
-	&__img {
-		width: 100%;
-		max-width: 100%;
-		aspect-ratio: 3/4;
-		object-fit: contain;
-		margin-bottom: 1em;
-		border-radius: 10px;
-		transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
-		&:hover {
-			transform: scale(1.1);
-		}
-	}
-	&__name {
-		font-size: 1.1em;
-		line-height: 1em; // Дуже близько до розміру шрифта
-		font-weight: 600;
-		margin-bottom: 0.7em;
-		text-align: center;
-		@media (max-width: 600px) {
-			font-size: 1em;
-			line-height: 1.08; // Трохи більше для читабельності на мобільних
-		}
-	}
-	&__price {
-		font-size: 1.2em;
-		font-weight: 700;
-	}
-	&__btn {
-		padding: 0.6em 1.5em;
-		font-size: 0.8em;
-		border-radius: 0.5em;
-		background: linear-gradient(90deg, #2ecc40 0%, #27ae60 100%);
-		color: #fff;
-		font-weight: 500;
-		cursor: pointer;
-		transition: background 0.5s;
-		box-shadow: 0 2px 8px rgba(20, 90, 50, 0.08);
-		&:hover {
-			background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
-		}
-		&:active {
-			transform: translate(0, 1.5px);
-		}
+}
+
+// Одна універсальна стилізація для картки
+.shop__card,
+.card-item {
+	width: 100%;
+	max-width: 300px;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 1.2em 0.8em 1.2em 0.8em;
+	font-size: clamp(0.9rem, 2vw, 1.1rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #ffffff70;
+	border-radius: 16px;
+	box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
+	transition: box-shadow 0.2s;
+	height: 100%;
+	position: relative;
+}
+
+// Стилі для елементів картки (shop__* і card-item__*)
+.shop__img,
+.card-item__img {
+	width: 100%;
+	max-width: 100%;
+	aspect-ratio: 3/4;
+	object-fit: contain;
+	margin-bottom: 1em;
+	border-radius: 10px;
+	transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
+	&:hover {
+		transform: scale(1.1);
 	}
 }
 
-// Додаємо підтримку card-item__* класів для карток
-.card-item__img {
-	@extend .shop__img;
-}
+.shop__name,
 .card-item__name {
-	@extend .shop__name;
+	font-size: 1.1em;
+	line-height: 1em;
+	font-weight: 600;
+	margin-bottom: 0.7em;
+	text-align: center;
+	@media (max-width: 600px) {
+		font-size: 1em;
+		line-height: 1.08;
+	}
 }
+
+.shop__price,
 .card-item__price {
-	@extend .shop__price;
-	margin-top: auto; // Ціна притиснута донизу, над кнопкою
+	font-size: 1.2em;
+	font-weight: 700;
+	margin-top: auto; // Ціна завжди внизу, над кнопкою
 }
+
+.shop__btn,
 .card-item__btn {
-	@extend .shop__btn;
+	padding: 0.6em 1.5em;
+	font-size: 0.8em;
+	border-radius: 0.5em;
+	background: linear-gradient(90deg, #2ecc40 0%, #27ae60 100%);
+	color: #fff;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.5s;
+	box-shadow: 0 2px 8px rgba(20, 90, 50, 0.08);
 	margin-top: 0.5em; // Кнопка під ціною
-	user-select: none; // Забороняємо виділення тексту на кнопці
+	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+	&:hover {
+		background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
+	}
+	&:active {
+		transform: translate(0, 1.5px);
+	}
 }
+
 .card-item__catalog {
 	display: flex;
 	align-items: center;
@@ -184,25 +181,6 @@
 		color: #219150;
 		text-decoration: underline;
 	}
-}
-
-.shop__card,
-.card-item {
-	width: 100%;
-	max-width: 300px;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 1.2em 0.8em 1.2em 0.8em;
-	font-size: clamp(0.9rem, 2vw, 1.1rem);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: #fff;
-	border-radius: 16px;
-	box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
-	transition: box-shadow 0.2s;
-	height: 100%; // Додаємо повну висоту для грід-контейнера
-	position: relative;
 }
 
 @media (max-width: 900px) {
