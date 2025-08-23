@@ -66,11 +66,10 @@
 // cards //
 
 .shop {
-	padding: 20px 0;
-	margin-top: 48px;
-	&__wrapper {
+	padding: 20px 0 20px 0;
+	@media (max-width: 1200px) {
+		padding: 0 0 20px 0;
 	}
-
 	&__title {
 		margin: 0 0 20px 0;
 		text-align: center;
@@ -82,7 +81,7 @@
 	&__box {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-		gap: 24px;
+		gap: 14px;
 		justify-items: center;
 	}
 	&__card {
@@ -90,7 +89,7 @@
 		max-width: 300px;
 		box-sizing: border-box;
 		margin: 0;
-		padding: 1.2em 0.8em 0.2em 0.8em;
+		padding: 1.2em 0.8em 1.2em 0.8em;
 		font-size: clamp(0.9rem, 2vw, 1.1rem);
 		display: flex;
 		flex-direction: column;
@@ -99,38 +98,46 @@
 		border-radius: 16px;
 		box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
 		transition: box-shadow 0.2s;
+		&:last-child {
+			justify-content: center;
+		}
 	}
 	&__img {
 		width: 100%;
-		max-width: 90%;
+		max-width: 100%;
 		aspect-ratio: 3/4;
 		object-fit: contain;
 		margin-bottom: 1em;
 		border-radius: 10px;
-		background: #f5f6f8;
-		transition: max-width 0.2s, aspect-ratio 0.2s;
+		transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
+		&:hover {
+			transform: scale(1.1);
+		}
 	}
 	&__name {
 		font-size: 1.1em;
+		line-height: 1em; // Дуже близько до розміру шрифта
 		font-weight: 600;
 		margin-bottom: 0.7em;
 		text-align: center;
+		@media (max-width: 600px) {
+			font-size: 1em;
+			line-height: 1.08; // Трохи більше для читабельності на мобільних
+		}
 	}
 	&__price {
 		font-size: 1.2em;
 		font-weight: 700;
-		margin-bottom: 1em;
 	}
 	&__btn {
 		padding: 0.6em 1.5em;
-		font-size: 1em;
+		font-size: 0.8em;
 		border-radius: 0.5em;
 		background: linear-gradient(90deg, #2ecc40 0%, #27ae60 100%);
 		color: #fff;
 		font-weight: 500;
-		border: none;
 		cursor: pointer;
-		transition: background 0.2s;
+		transition: background 0.5s;
 		box-shadow: 0 2px 8px rgba(20, 90, 50, 0.08);
 		&:hover {
 			background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
@@ -141,11 +148,69 @@
 	}
 }
 
+// Додаємо підтримку card-item__* класів для карток
+.card-item__img {
+	@extend .shop__img;
+}
+.card-item__name {
+	@extend .shop__name;
+}
+.card-item__price {
+	@extend .shop__price;
+	margin-top: auto; // Ціна притиснута донизу, над кнопкою
+}
+.card-item__btn {
+	@extend .shop__btn;
+	margin-top: 0.5em; // Кнопка під ціною
+	user-select: none; // Забороняємо виділення тексту на кнопці
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.card-item__catalog {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	font-size: 1.1em;
+	font-weight: 700;
+	color: #27ae60;
+	cursor: pointer;
+	text-align: center;
+	padding: 1.5em 0.5em;
+	transition: color 0.2s;
+	&:hover {
+		color: #219150;
+		text-decoration: underline;
+	}
+}
+
+.shop__card,
+.card-item {
+	width: 100%;
+	max-width: 300px;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 1.2em 0.8em 1.2em 0.8em;
+	font-size: clamp(0.9rem, 2vw, 1.1rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 16px rgba(20, 90, 50, 0.08);
+	transition: box-shadow 0.2s;
+	height: 100%; // Додаємо повну висоту для грід-контейнера
+	position: relative;
+}
+
 @media (max-width: 900px) {
 	.shop__box {
 		gap: 16px;
 	}
-	.shop__img {
+	.shop__img,
+	.card-item__img {
 		max-width: 80%;
 	}
 }
@@ -158,12 +223,14 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 12px;
 	}
-	.shop__card {
+	.shop__card,
+	.card-item {
 		max-width: 100%;
 		font-size: clamp(0.8rem, 3vw, 1rem);
 		padding: 0.8em 0.4em;
 	}
-	.shop__img {
+	.shop__img,
+	.card-item__img {
 		max-width: 70%;
 	}
 }
