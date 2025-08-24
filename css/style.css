@@ -179,18 +179,19 @@ html {
 
 .hero {
   padding: 70px 0 70px 0;
-  background: url(../img/bytli.jpg) left center no-repeat;
+  background: url(../img/biryza-bytli-min.jpg) left center no-repeat;
   background-size: cover;
   border-radius: 0 0 20px 20px;
 }
 @media (max-width: 1200px) {
   .hero {
     padding: 40px 0 30px 0;
-    background: url(../img/bytli.jpg) center no-repeat;
+    background: url(../img/biryza-bytli-min.jpg) center no-repeat;
     background-size: cover;
   }
 }
 .hero__wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -213,9 +214,33 @@ html {
     line-height: 60px;
   }
 }
+.hero__time::after {
+  position: absolute;
+  content: "";
+  background: url(../img/madeinua.webp) no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100%;
+  right: 0px;
+  top: 50px;
+}
+@media (max-width: 1200px) {
+  .hero__time::after {
+    top: 45px;
+    right: 0px;
+  }
+}
+@media (max-width: 380px) {
+  .hero__time::after {
+    width: 50px;
+    top: 50px;
+    right: 0px;
+  }
+}
 .hero__title {
   text-transform: uppercase;
   font-size: 44px;
+  font-weight: 800;
   margin: 0 0 30px 0;
   line-height: 45px;
 }
@@ -226,14 +251,26 @@ html {
     line-height: 21px;
   }
 }
+@media (max-width: 500px) {
+  .hero__title {
+    max-width: 300px;
+  }
+}
 .hero__text {
   font-size: 24px;
   line-height: 26px;
+  max-width: 800px;
 }
 @media (max-width: 1200px) {
   .hero__text {
     font-size: 14px;
     line-height: 16px;
+    max-width: 500px;
+  }
+}
+@media (max-width: 500px) {
+  .hero__text {
+    max-width: 250px;
   }
 }
 
@@ -268,6 +305,7 @@ html {
   padding: 1.2em 0.8em 1.2em 0.8em;
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.23);
   flex-direction: column;
   align-items: center;
   background: rgba(255, 255, 255, 0.4392156863);
@@ -286,6 +324,7 @@ html {
   -o-object-fit: contain;
      object-fit: contain;
   margin-bottom: 1em;
+  border-bottom: 1px solid black;
   border-radius: 10px;
   transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
 }
@@ -296,8 +335,8 @@ html {
 
 .shop__name,
 .card-item__name {
-  font-size: 1.1em;
-  line-height: 1em;
+  font-size: 1em;
+  line-height: 0.9em;
   font-weight: 600;
   margin-bottom: 0.7em;
   text-align: center;
@@ -312,35 +351,35 @@ html {
 
 .shop__price,
 .card-item__price {
-  font-size: 1.2em;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 300;
   margin-top: auto;
+  margin-bottom: 10px;
 }
 
 .shop__btn,
 .card-item__btn {
-  padding: 0.6em 1.5em;
-  font-size: 0.8em;
-  border-radius: 0.5em;
-  background: linear-gradient(90deg, #2ecc40 0%, #27ae60 100%);
+  padding: 1.3em 3em;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 800;
   color: #fff;
-  font-weight: 500;
+  background-color: #23c483;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  transition: all 0.3s ease 0s;
   cursor: pointer;
-  transition: background 0.5s;
-  box-shadow: 0 2px 8px rgba(20, 90, 50, 0.08);
-  margin-top: 0.5em;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  outline: none;
 }
 .shop__btn:hover,
 .card-item__btn:hover {
-  background: linear-gradient(90deg, #27ae60 0%, #2ecc40 100%);
+  transform: translateY(-3px);
 }
 .shop__btn:active,
 .card-item__btn:active {
-  transform: translate(0, 1.5px);
+  transform: translateY(-1px);
 }
 
 .card-item__catalog {
