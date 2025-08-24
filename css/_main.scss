@@ -18,73 +18,74 @@
 		justify-content: center;
 		align-items: flex-start;
 	}
+}
 
-	&__time,
-	&__title,
-	&__text {
-		color: #fff;
-		text-shadow: 0 1px 3px #0d1210, 0 0 1px #000, 0 2px 7px rgba(0, 0, 0, 0.8);
-	}
+// Окремі стилі для hero__time, hero__title, hero__text з дуже легкою тінню
+.hero__time,
+.hero__title,
+.hero__text {
+	color: #fff;
+	text-shadow: 0 2px 6px rgba(13, 18, 16, 0.18), 0 0 1px rgba(0, 0, 0, 0.06);
+}
 
-	&__time {
-		text-transform: uppercase;
-		font-size: 84px;
-		line-height: 85px;
+.hero__time {
+	text-transform: uppercase;
+	font-size: 84px;
+	line-height: 85px;
+	margin: 40px 0 40px 0;
+	@media (max-width: 1200px) {
 		margin: 40px 0 40px 0;
+		font-size: 60px;
+		line-height: 60px;
+	}
+	&::after {
+		position: absolute;
+		content: '';
+		background: url(../img/madeinua.webp) no-repeat;
+		background-size: contain;
+		width: 100px;
+		height: 100%;
+		right: 0px;
+		top: 50px;
 		@media (max-width: 1200px) {
-			margin: 40px 0 40px 0;
-			font-size: 60px;
-			line-height: 60px;
-		}
-		&::after {
-			position: absolute;
-			content: '';
-			background: url(../img/madeinua.webp) no-repeat;
-			background-size: contain;
-			width: 100px;
-			height: 100%;
+			top: 45px;
 			right: 0px;
+		}
+		@media (max-width: 380px) {
+			width: 50px;
 			top: 50px;
-			@media (max-width: 1200px) {
-				top: 45px;
-				right: 0px;
-			}
-			@media (max-width: 380px) {
-				width: 50px;
-				top: 50px;
-				right: 0px;
-			}
+			right: 0px;
 		}
 	}
+}
 
-	&__title {
-		text-transform: uppercase;
-		font-size: 44px;
-		font-weight: 800;
+.hero__title {
+	text-transform: uppercase;
+	font-size: 44px;
+	font-weight: 800;
+	margin: 0 0 30px 0;
+	line-height: 45px;
+	@media (max-width: 1200px) {
+		font-size: 20px;
 		margin: 0 0 30px 0;
-		line-height: 45px;
-		@media (max-width: 1200px) {
-			font-size: 20px;
-			margin: 0 0 30px 0;
-			line-height: 21px;
-		}
-		@media (max-width: 500px) {
-			max-width: 300px;
-		}
+		line-height: 21px;
 	}
+	@media (max-width: 500px) {
+		max-width: 300px;
+	}
+}
 
-	&__text {
-		font-size: 24px;
-		line-height: 26px;
-		max-width: 800px;
-		@media (max-width: 1200px) {
-			font-size: 14px;
-			line-height: 16px;
-			max-width: 500px;
-		}
-		@media (max-width: 500px) {
-			max-width: 250px;
-		}
+.hero__text {
+	font-size: 24px;
+	line-height: 26px;
+	max-width: 800px;
+	@media (max-width: 1200px) {
+		font-size: 14px;
+		line-height: 16px;
+		max-width: 500px;
+	}
+	@media (max-width: 500px) {
+		max-width: 250px;
 	}
 }
 
@@ -183,10 +184,14 @@
 	background-color: #23c483;
 	border: none;
 	border-radius: 45px;
-	box-shadow: 0px 5px 10px #2ee59d66;
+	box-shadow: 0px 2px 6px #2ee59d22; // Дуже легка тінь
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 	outline: none;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	&:hover {
 		transform: translateY(-3px);
 	}
