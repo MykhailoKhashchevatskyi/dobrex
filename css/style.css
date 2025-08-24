@@ -130,7 +130,7 @@ html {
 }
 .header__link:hover {
   transform: scale(1.01);
-  color: green;
+  color: rgba(46, 229, 157, 0.4);
 }
 .header__ua-image {
   transition: 0.3s ease;
@@ -165,7 +165,7 @@ html {
 .header__basket {
   cursor: pointer;
   border-radius: 50%;
-  background-color: rgb(14, 194, 14);
+  background-color: #2ee59d;
   padding: 7px;
 }
 .header__basket-image {
@@ -324,7 +324,7 @@ html {
   -o-object-fit: contain;
      object-fit: contain;
   margin-bottom: 1em;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(46, 229, 157, 0.4);
   border-radius: 10px;
   transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
 }
@@ -360,9 +360,9 @@ html {
 .shop__btn,
 .card-item__btn {
   padding: 1.3em 3em;
-  font-size: 0.6em;
+  font-size: 0.5em;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   font-weight: 800;
   color: #fff;
   background-color: #23c483;

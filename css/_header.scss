@@ -47,7 +47,7 @@
 		transition: 0.5s ease;
 		&:hover {
 			transform: scale(1.01);
-			color: green;
+			color: #2ee59d66;
 		}
 	}
 
@@ -87,7 +87,7 @@
 	&__basket {
 		cursor: pointer;
 		border-radius: 50%;
-		background-color: rgb(14, 194, 14);
+		background-color: #2ee59d;
 		padding: 7px;
 	}
 
