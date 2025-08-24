@@ -115,8 +115,7 @@
 	}
 }
 
-// Одна універсальна стилізація для картки
-.shop__card,
+// Картки-хуяртки
 .card-item {
 	width: 100%;
 	max-width: 300px;
@@ -136,8 +135,7 @@
 	position: relative;
 }
 
-// Стилі для елементів картки (shop__* і card-item__*)
-.shop__img,
+
 .card-item__img {
 	width: 100%;
 	max-width: 100%;
@@ -152,7 +150,6 @@
 	}
 }
 
-.shop__name,
 .card-item__name {
 	font-size: 1em;
 	line-height: 0.9em;
@@ -165,15 +162,13 @@
 	}
 }
 
-.shop__price,
 .card-item__price {
 	font-size: 1em;
 	font-weight: 300;
-	margin-top: auto; // Ціна завжди внизу, над кнопкою
+	margin-top: auto; // Ціна завжди внизу, над кнопкою хз вроді (виправив)
 	margin-bottom: 10px;
 }
 
-.shop__btn,
 .card-item__btn {
 	padding: 1.3em 3em;
 	font-size: 0.5em;
@@ -184,7 +179,7 @@
 	background-color: #23c483;
 	border: none;
 	border-radius: 45px;
-	box-shadow: 0px 2px 6px #2ee59d22; // Дуже легка тінь
+	box-shadow: 0px 2px 6px #2ee59d61; // Дуже легка тінь (допрацювати)
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 	outline: none;
