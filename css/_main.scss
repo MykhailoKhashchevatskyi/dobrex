@@ -298,6 +298,9 @@
 		flex-direction: column;
 		gap: 15px;
 		margin: 0 0 20px 0;
+		border-radius: 20px;
+		padding: 0 5px 15px;
+		box-shadow: 0 1px 4px rgba(13, 18, 16, 0.8), 0 0 1px #27ae60;
 	}
 	&__image-block {
 		margin: 0 24px 0 0;
