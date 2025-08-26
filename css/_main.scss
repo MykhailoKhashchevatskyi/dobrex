@@ -274,7 +274,7 @@
 		display: flex;
 		justify-content: space-around;
 		gap: 24px;
-		@media (max-width: 1000px) {
+		@media (max-width: 1244px) {
 			flex-wrap: wrap;
 			gap: 0;
 		}
@@ -287,6 +287,13 @@
 	}
 
 	&__right {
+	}
+
+	&__left,
+	&__right {
+				@media (min-width: 1244px) {
+		flex: 1;  
+		} /* обидва ділять простір 50/50 */
 	}
 }
 .container {

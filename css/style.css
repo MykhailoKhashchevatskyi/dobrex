@@ -457,12 +457,21 @@ html {
   justify-content: space-around;
   gap: 24px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1244px) {
   .why__block {
     flex-wrap: wrap;
     gap: 0;
   }
 }
+.why__left, .why__right {
+  /* обидва ділять простір 50/50 */
+}
+@media (min-width: 1244px) {
+  .why__left, .why__right {
+    flex: 1;
+  }
+}
+
 .why-card {
   display: flex;
   min-height: 200px;
