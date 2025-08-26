@@ -247,7 +247,7 @@
 // section-why
 
 .why {
-	padding: 40px 0;
+	padding: 20px 0;
 	&__wrapper {
 	}
 
@@ -291,8 +291,8 @@
 
 	&__left,
 	&__right {
-				@media (min-width: 1244px) {
-		flex: 1;  
+		@media (min-width: 1244px) {
+			flex: 1;
 		} /* обидва ділять простір 50/50 */
 	}
 }

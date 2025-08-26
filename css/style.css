@@ -431,7 +431,7 @@ html {
   }
 }
 .why {
-  padding: 40px 0;
+  padding: 20px 0;
 }
 .why__title {
   margin: 0 0 20px 0;
@@ -560,7 +560,7 @@ html {
     padding: 20px 0;
     border-radius: 15px;
     right: 10px;
-    top: 50px;
+    top: 60px;
   }
   .header__menu.open {
     display: flex;
