@@ -302,7 +302,6 @@ html {
   justify-items: center;
 }
 
-.shop__card,
 .card-item {
   width: 100%;
   max-width: 300px;
@@ -322,7 +321,6 @@ html {
   position: relative;
 }
 
-.shop__img,
 .card-item__img {
   width: 100%;
   max-width: 100%;
@@ -334,12 +332,10 @@ html {
   border-radius: 10px;
   transition: max-width 0.2s, aspect-ratio 0.2s, 0.5s ease;
 }
-.shop__img:hover,
 .card-item__img:hover {
   transform: scale(1.1);
 }
 
-.shop__name,
 .card-item__name {
   font-size: 1em;
   line-height: 0.9em;
@@ -348,14 +344,12 @@ html {
   text-align: center;
 }
 @media (max-width: 600px) {
-  .shop__name,
   .card-item__name {
     font-size: 1em;
     line-height: 1.08;
   }
 }
 
-.shop__price,
 .card-item__price {
   font-size: 1em;
   font-weight: 300;
@@ -363,7 +357,6 @@ html {
   margin-bottom: 10px;
 }
 
-.shop__btn,
 .card-item__btn {
   padding: 1.3em 3em;
   font-size: 0.5em;
@@ -383,11 +376,9 @@ html {
   -moz-user-select: none;
   -ms-user-select: none;
 }
-.shop__btn:hover,
 .card-item__btn:hover {
   transform: translateY(-3px);
 }
-.shop__btn:active,
 .card-item__btn:active {
   transform: translateY(-1px);
 }
@@ -439,6 +430,91 @@ html {
     max-width: 70%;
   }
 }
+.why {
+  padding: 40px 0;
+}
+.why__title {
+  margin: 0 0 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: 800;
+}
+.why__text {
+  text-align: center;
+  margin: 0 0 40px 0;
+  font-size: 24px;
+}
+@media (max-width: 700px) {
+  .why__text {
+    font-size: 16px;
+    text-align: left;
+    margin: 0 0 20px 0;
+  }
+}
+.why__block {
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+}
+@media (max-width: 1000px) {
+  .why__block {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+}
+.why-card {
+  display: flex;
+  min-height: 200px;
+}
+@media (max-width: 700px) {
+  .why-card {
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 0 20px 0;
+  }
+}
+.why-card__image-block {
+  margin: 0 24px 0 0;
+}
+@media (max-width: 700px) {
+  .why-card__image-block {
+    align-self: center;
+    margin: 0;
+  }
+}
+.why-card__img {
+  max-width: 60px;
+  padding: 10px 0 0 0;
+}
+@media (max-width: 700px) {
+  .why-card__img {
+    max-width: 38px;
+  }
+}
+.why-card__name {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  color: #27ae60;
+}
+@media (max-width: 700px) {
+  .why-card__name {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.why-card__description {
+  font-size: 18px;
+}
+@media (max-width: 700px) {
+  .why-card__description {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
 .burger-menu {
   display: none;
   cursor: pointer;

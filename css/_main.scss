@@ -135,7 +135,6 @@
 	position: relative;
 }
 
-
 .card-item__img {
 	width: 100%;
 	max-width: 100%;
@@ -242,5 +241,100 @@
 	.shop__img,
 	.card-item__img {
 		max-width: 70%;
+	}
+}
+
+// section-why
+
+.why {
+	padding: 40px 0;
+	&__wrapper {
+	}
+
+	&__title {
+		margin: 0 0 20px 0;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 34px;
+		font-weight: 800;
+	}
+
+	&__text {
+		text-align: center;
+		margin: 0 0 40px 0;
+		font-size: 24px;
+		@media (max-width: 700px) {
+			font-size: 16px;
+			text-align: left;
+			margin: 0 0 20px 0;
+		}
+	}
+
+	&__block {
+		display: flex;
+		justify-content: space-around;
+		gap: 24px;
+		@media (max-width: 1000px) {
+			flex-wrap: wrap;
+			gap: 0;
+		}
+	}
+
+	&__left {
+	}
+
+	&__block-card {
+	}
+
+	&__right {
+	}
+}
+.container {
+}
+.why-card {
+	display: flex;
+	min-height: 200px;
+	@media (max-width: 700px) {
+		flex-direction: column;
+		gap: 15px;
+		margin: 0 0 20px 0;
+	}
+	&__image-block {
+		margin: 0 24px 0 0;
+		@media (max-width: 700px) {
+			align-self: center;
+			margin: 0;
+		}
+	}
+
+	&__img {
+		max-width: 60px;
+		padding: 10px 0 0 0;
+		@media (max-width: 700px) {
+			max-width: 38px;
+		}
+	}
+
+	&__text {
+	}
+
+	&__name {
+		font-size: 24px;
+		font-weight: 800;
+		text-transform: uppercase;
+		margin: 0 0 10px 0;
+		color: #27ae60;
+		@media (max-width: 700px) {
+			font-size: 20px;
+			text-align: center;
+		}
+	}
+
+	&__description {
+		font-size: 18px;
+		@media (max-width: 700px) {
+			font-size: 14px;
+			text-align: center;
+		}
 	}
 }
