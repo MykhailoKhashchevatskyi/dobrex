@@ -527,6 +527,122 @@ html {
   }
 }
 
+.sub {
+  padding: 40px 0 60px 0;
+}
+@media (max-width: 1200px) {
+  .sub {
+    padding: 10px 0 40px 0;
+  }
+}
+.sub__box {
+  margin: 0 auto;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 1px 4px rgba(13, 18, 16, 0.8), 0 0 1px #27ae60;
+  padding: 40px;
+  background-color: #27ae60;
+}
+.sub__title {
+  font-size: 2.2em;
+  color: white;
+}
+.sub__text {
+  font-size: 1.1em;
+  color: white;
+  line-height: 25px;
+  margin: 0 0 20px 0;
+}
+.sub__number {
+  font-size: 1.2em;
+  margin: 0 0 20px 0;
+}
+.sub__link {
+  color: white;
+}
+.sub__button {
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+.footer {
+  border-radius: 20px 20px 0 0;
+  padding: 20px 0 10px 0;
+  background-color: #27ae60;
+}
+.footer__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.footer__logo, .footer__license {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.footer__conacts {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.footer__fop {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+.footer__name {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 0 0 10px 0;
+}
+.footer__adress {
+  font-size: 1.1em;
+  line-height: 1.1em;
+  margin: 0 0 10px 0;
+}
+.footer__number {
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0 0 10px 0;
+}
+.footer__made-ua {
+  max-width: 150px;
+  margin: 0 0 10px 0;
+}
+@media (max-width: 1300px) {
+  .footer__wrapper {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .footer__logo {
+    max-width: 170px;
+  }
+  .footer__conacts {
+    text-align: center;
+  }
+  .footer__license {
+    flex: unset;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__made-ua {
+    max-width: 100px;
+    margin: 0 0 10px 0;
+  }
+}
+
 .burger-menu {
   display: none;
   cursor: pointer;

@@ -1,0 +1,97 @@
+.footer {
+  border-radius: 20px 20px 0 0;
+	padding: 20px 0 10px 0;
+	background-color: #27ae60;
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 24px;
+	}
+
+	&__logo,
+	&__license {
+		flex: 1 1 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-width: 0;
+	}
+
+	&__conacts {
+		flex: 2 1 0; // центральний блок ширший
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-width: 0;
+	}
+
+	&__image {
+	}
+
+	&__fop {
+		font-size: 1.2em;
+		line-height: 1.2em;
+	}
+
+	&__name {
+		font-size: 1.2em;
+		line-height: 1.2em;
+		margin: 0 0 10px 0;
+	}
+
+	&__adress {
+		font-size: 1.1em;
+		line-height: 1.1em;
+		margin: 0 0 10px 0;
+	}
+
+	&__number {
+		font-size: 1em;
+		line-height: 1em;
+		margin: 0 0 10px 0;
+	}
+
+	&__mail {
+	}
+
+	&__license {
+	}
+
+	&__made-ua {
+		max-width: 150px;
+		margin: 0 0 10px 0;
+	}
+
+	&__rights {
+	}
+
+	@media (max-width: 1300px) {
+		&__wrapper {
+			flex-direction: column;
+			gap: 16px;
+			align-items: center;
+		}
+		&__logo {
+			max-width: 170px;
+		}
+		&__conacts {
+			text-align: center;
+		}
+		&__license {
+			flex: unset;
+			width: 100%;
+			max-width: 100%;
+			align-items: center;
+			justify-content: center;
+		}
+		&__made-ua {
+			max-width: 100px;
+			margin: 0 0 10px 0;
+		}
+	}
+}
+.container {
+}

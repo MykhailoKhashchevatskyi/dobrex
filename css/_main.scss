@@ -348,3 +348,54 @@
 		}
 	}
 }
+
+// sub-section
+
+.sub {
+	padding: 40px 0 60px 0;
+	@media (max-width: 1200px){
+		padding: 10px 0 40px 0
+	}
+	&__wrapper {
+	}
+
+	&__box {
+		margin: 0 auto;
+		max-width: 800px;
+		border-radius: 20px;
+		box-shadow: 0 1px 4px rgba(13, 18, 16, 0.8), 0 0 1px #27ae60;
+		padding: 40px;
+		background-color: #27ae60;
+	}
+
+	&__title {
+		font-size: 2.2em;
+		color: white;
+	}
+
+	&__text {
+		font-size: 1.1em;
+		color: white;
+		line-height: 25px;
+		margin: 0 0 20px 0;
+	}
+
+	&__number {
+		font-size: 1.2em;
+		margin: 0 0 20px 0;
+	}
+
+	&__link {
+		color: white;
+	}
+
+	&__button {
+		color: white;
+		border: 1px solid white;
+		padding: 10px;
+		border-radius: 10px;
+		font-size: 1.2em;
+	}
+}
+.container {
+}
