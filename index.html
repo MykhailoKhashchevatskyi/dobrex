@@ -104,6 +104,9 @@
 										<div class="card-item__name">Кондиціонер для тканини</div>
 										<div class="card-item__price">120 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
+										<div class="card-item__desc" style="display: none">
+											Тут детальна інформація про товар.
+										</div>
 									</div>
 									<div class="shop__card card-item">
 										<img
@@ -114,6 +117,11 @@
 										<div class="card-item__name">Мило для рук</div>
 										<div class="card-item__price">40 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
+										<div class="card-item__desc" style="display: none">
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Voluptate hic perferendis cum reiciendis, perspiciatis
+											beatae dolores recusandae asperiores maxime aliquid.
+										</div>
 									</div>
 									<div class="shop__card card-item">
 										<img
@@ -124,6 +132,11 @@
 										<div class="card-item__name">Гель для прання</div>
 										<div class="card-item__price">200 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
+										<div class="card-item__desc" style="display: none">
+											Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+											Voluptatibus soluta, laudantium fugit totam quisquam ab
+											dolores tempora nostrum! Rem, error!
+										</div>
 									</div>
 									<div class="shop__card card-item">
 										<img
@@ -134,6 +147,11 @@
 										<div class="card-item__name">Рідина для миття посуду</div>
 										<div class="card-item__price">1200 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
+										<div class="card-item__desc" style="display: none">
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Totam temporibus inventore nesciunt, praesentium delectus
+											vel quae dignissimos illum neque tempora.
+										</div>
 									</div>
 									<div class="shop__card card-item">
 										<img
@@ -144,6 +162,11 @@
 										<div class="card-item__name">Гель для чищення туалету</div>
 										<div class="card-item__price">110 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
+										<div class="card-item__desc" style="display: none">
+											Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+											Adipisci illum tenetur voluptate nemo magnam placeat
+											veniam necessitatibus maiores et magni.
+										</div>
 									</div>
 									<div class="shop__card card-item">
 										<div class="card-item__catalog">Отримати весь каталог</div>
@@ -360,9 +383,27 @@
 					<input type="tel" name="phone" placeholder="Телефон" required />
 					<button type="submit">Відправити</button>
 				</form>
+				<div
+					class="cart-modal__message"
+					id="cart-message"
+					style="display: none"
+				></div>
 			</div>
 		</div>
 		<!-- /корзина -->
+		<div class="product-modal" id="product-modal" style="display: none">
+			<div class="product-modal__content">
+				<button class="product-modal__close" id="product-modal-close">
+					&times;
+				</button>
+				<img src="" alt="" class="product-modal__img" id="product-modal-img" />
+				<div class="product-modal__info">
+					<h2 class="product-modal__name" id="product-modal-name"></h2>
+					<div class="product-modal__price" id="product-modal-price"></div>
+					<div class="product-modal__desc" id="product-modal-desc"></div>
+				</div>
+			</div>
+		</div>
 		<script src="./js/script.js"></script>
 	</body>
 </html>

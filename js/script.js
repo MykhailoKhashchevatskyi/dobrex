@@ -10,6 +10,7 @@ const cartItemsBox = document.getElementById('cart-items');
 const cartEmpty = document.getElementById('cart-empty');
 const cartOrderBtn = document.getElementById('cart-order');
 const cartForm = document.getElementById('cart-form');
+const cartMessage = document.getElementById('cart-message');
 
 let cart = [];
 
@@ -137,7 +138,14 @@ cartForm.addEventListener('submit', e => {
 	renderCart();
 	cartForm.reset();
 	cartForm.style.display = 'none';
-	alert("Дякуємо за замовлення! Ми зв'яжемось з вами найближчим часом.");
+	// alert("Дякуємо за замовлення! Ми зв'яжемось з вами найближчим часом.");
+	cartMessage.textContent =
+		"Дякуємо за замовлення! Ми зв'яжемось з вами найближчим часом.";
+	cartMessage.style.display = '';
+	setTimeout(() => {
+		cartMessage.style.display = 'none';
+		closeCart();
+	}, 2500);
 	updateBasketCount();
 });
 
@@ -176,3 +184,98 @@ document.addEventListener('click', e => {
 		document.body.style.overflow = '';
 	}
 });
+
+// --- Модалка товару ---
+const productModal = document.getElementById('product-modal');
+const productModalClose = document.getElementById('product-modal-close');
+const productModalImg = document.getElementById('product-modal-img');
+const productModalName = document.getElementById('product-modal-name');
+const productModalPrice = document.getElementById('product-modal-price');
+const productModalDesc = document.getElementById('product-modal-desc');
+
+// Додаткова інформація для кожного товару (можна розширити)
+const productDescriptions = {
+	'Кондиціонер для тканини':
+		"Додає м'якості та приємного аромату вашим речам. Підходить для всіх типів тканин.",
+	'Мило для рук': 'Делікатно очищає шкіру, не пересушує, має приємний аромат.',
+	'Гель для прання':
+		'Ефективно видаляє забруднення навіть у холодній воді. Підходить для кольорових і білих речей.',
+	'Рідина для миття посуду':
+		'Легко справляється з жиром, не залишає розводів, економно витрачається.',
+	'Гель для чищення туалету':
+		'Глибоко очищає та дезінфікує, залишає свіжий аромат.',
+};
+
+document.querySelectorAll('.card-item__img').forEach(img => {
+	img.addEventListener('click', () => {
+		const card = img.closest('.card-item');
+		const name = card.querySelector('.card-item__name').textContent;
+		const price = card.querySelector('.card-item__price').textContent;
+		const descBlock = card.querySelector('.card-item__desc');
+		const desc = descBlock
+			? descBlock.innerHTML
+			: 'Детальна інформація про товар незабаром.';
+		productModalImg.src = img.src;
+		productModalImg.alt = img.alt;
+		productModalName.textContent = name;
+		productModalPrice.textContent = price;
+		productModalDesc.innerHTML = desc;
+
+		// Додаємо id картки до кнопки в модалці
+		productModalAddBtn.dataset.name = name;
+		productModalAddBtn.dataset.price = price;
+
+		productModal.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
+	});
+});
+
+// Додаємо кнопку "Додати в кошик" у модалку
+const productModalAddBtn = document.createElement('button');
+productModalAddBtn.className = 'product-modal__add-btn card-item__btn';
+productModalAddBtn.textContent = 'Додати в кошик';
+productModalDesc.after(productModalAddBtn);
+
+// Обробник для кнопки в модалці
+productModalAddBtn.addEventListener('click', () => {
+	const name = productModalAddBtn.dataset.name;
+	const price = productModalAddBtn.dataset.price;
+	const id = name;
+	let item = cart.find(i => i.id === id);
+	if (item) {
+		item.qty += 1;
+	} else {
+		cart.push({ id, name, price, qty: 1 });
+	}
+	renderCart();
+
+	// Анімація (імітація з центру модалки до корзини)
+	const cartIcon = document.querySelector('.header__basket');
+	const modalImgRect = productModalImg.getBoundingClientRect();
+	const cartRect = cartIcon.getBoundingClientRect();
+	const flyImg = productModalImg.cloneNode(true);
+	flyImg.classList.add('fly-to-cart-img');
+	document.body.appendChild(flyImg);
+	flyImg.style.left = modalImgRect.left + 'px';
+	flyImg.style.top = modalImgRect.top + 'px';
+	flyImg.style.width = modalImgRect.width + 'px';
+	flyImg.style.height = modalImgRect.height + 'px';
+	setTimeout(() => {
+		flyImg.style.transform = `translate(${
+			cartRect.left - modalImgRect.left
+		}px, ${cartRect.top - modalImgRect.top}px) scale(0.2)`;
+		flyImg.style.opacity = '0.3';
+	}, 10);
+	setTimeout(() => {
+		flyImg.remove();
+	}, 900);
+});
+
+productModalClose.addEventListener('click', closeProductModal);
+productModal.addEventListener('click', e => {
+	if (e.target === productModal) closeProductModal();
+});
+function closeProductModal() {
+	productModal.style.display = 'none';
+	document.body.style.overflow = '';
+}

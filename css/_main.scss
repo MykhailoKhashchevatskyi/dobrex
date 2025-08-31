@@ -573,3 +573,125 @@
 	z-index: 2;
 	transition: background 0.2s;
 }
+
+.cart-modal__message {
+	background: #eaffea;
+	color: #27ae60;
+	border: 1.5px solid #27ae60;
+	border-radius: 10px;
+	padding: 18px 12px;
+	margin: 18px 0 0 0;
+	text-align: center;
+	font-size: 1.15em;
+	font-weight: 600;
+	box-shadow: 0 2px 8px #2ee59d22;
+	animation: fadeInCartMsg 0.5s;
+}
+@keyframes fadeInCartMsg {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.product-modal {
+	position: fixed;
+	z-index: 3000;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.65);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: fadeInCartMsg 0.3s;
+	// Додаємо для маленьких екранів:
+	@media (max-width: 400px), (max-height: 600px) {
+	}
+	&__content {
+		background: #fff;
+		border-radius: 20px;
+		max-width: 95vw;
+		width: 420px;
+		padding: 32px 24px 24px 24px;
+		position: relative;
+		box-shadow: 0 8px 32px #0002;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-height: 90vh;
+		overflow-y: auto;
+		// Для дуже маленьких екранів:
+		@media (max-width: 400px), (max-height: 600px) {
+			width: 99vw;
+			min-width: 0;
+			padding: 10px 2vw 10px 2vw;
+			border-radius: 10px;
+			max-height: 98vh;
+		}
+	}
+	&__close {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		background: none;
+		border: none;
+		font-size: 2em;
+		color: #27ae60;
+		cursor: pointer;
+		z-index: 2;
+		@media (max-width: 400px), (max-height: 600px) {
+			top: 6px;
+			right: 8px;
+			font-size: 1.5em;
+		}
+	}
+	&__img {
+		width: 70%;
+		max-width: 320px;
+		border-radius: 16px;
+		margin-bottom: 18px;
+		object-fit: contain;
+		background: #f8fff9;
+		box-shadow: 0 2px 8px #2ee59d22;
+		@media (max-width: 400px), (max-height: 600px) {
+			max-width: 70vw;
+			margin-bottom: 10px;
+		}
+	}
+	&__info {
+		width: 100%;
+		text-align: center;
+	}
+	&__name {
+		font-size: 1.2em;
+		font-weight: 700;
+		margin-bottom: 8px;
+		color: #27ae60;
+		@media (max-width: 400px), (max-height: 600px) {
+			font-size: 1em;
+			margin-bottom: 6px;
+		}
+	}
+	&__price {
+		font-size: 1.1em;
+		font-weight: 600;
+		margin-bottom: 12px;
+		color: #23c483;
+		@media (max-width: 400px), (max-height: 600px) {
+			font-size: 1em;
+			margin-bottom: 8px;
+		}
+	}
+	&__desc {
+		font-size: 0.95em;
+		color: #444;
+		margin-bottom: 10px;
+		@media (max-width: 400px), (max-height: 600px) {
+			font-size: 0.9em;
+			margin-bottom: 6px;
+		}
+	}
+}
