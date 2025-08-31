@@ -353,8 +353,8 @@
 
 .sub {
 	padding: 40px 0 60px 0;
-	@media (max-width: 1200px){
-		padding: 10px 0 40px 0
+	@media (max-width: 1200px) {
+		padding: 10px 0 40px 0;
 	}
 	&__wrapper {
 	}
@@ -398,4 +398,116 @@
 	}
 }
 .container {
+}
+
+.cart-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.4);
+	display: none;
+	z-index: 2000;
+	justify-content: center;
+	align-items: flex-start;
+	@media (max-width: 900px) {
+		align-items: stretch;
+	}
+	&.open {
+		display: flex;
+	}
+	&__content {
+		background: #fff;
+		border-radius: 16px;
+		margin: 40px auto 0 auto;
+		padding: 24px;
+		min-width: 320px;
+		max-width: 400px;
+		width: 100%;
+		position: relative;
+		@media (max-width: 900px) {
+			border-radius: 0;
+			margin: 0;
+			min-width: 100vw;
+			max-width: 100vw;
+			min-height: 100vh;
+			height: 100vh;
+			padding: 24px 12px 12px 12px;
+		}
+	}
+	&__close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		background: none;
+		border: none;
+		font-size: 2em;
+		cursor: pointer;
+	}
+	&__title {
+		margin-bottom: 16px;
+		text-align: center;
+	}
+	&__items {
+		margin-bottom: 16px;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #eee;
+		padding-bottom: 8px;
+	}
+	&__item-name {
+		flex: 1;
+	}
+	&__item-qty {
+		width: 50px;
+		text-align: center;
+	}
+	&__item-remove {
+		background: none;
+		border: none;
+		color: #e74c3c;
+		font-size: 1.2em;
+		cursor: pointer;
+	}
+	&__order,
+	&__form button {
+		width: 100%;
+		background: #27ae60;
+		color: #fff;
+		border: none;
+		border-radius: 8px;
+		padding: 12px;
+		font-size: 1.1em;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		margin-top: 10px;
+	}
+	&__empty {
+		text-align: center;
+		color: #888;
+		margin-bottom: 16px;
+	}
+}
+
+.fly-to-cart-img {
+	position: fixed;
+	z-index: 3000;
+	pointer-events: none;
+	transition: transform 0.8s cubic-bezier(0.4, 2, 0.6, 1), opacity 0.8s;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	object-fit: contain;
+	box-shadow: 0 2px 8px #0002;
+	opacity: 1;
 }

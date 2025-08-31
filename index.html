@@ -101,7 +101,7 @@
 											class="card-item__img"
 										/>
 										<div class="card-item__name">Кондиціонер для тканини</div>
-										<div class="card-item__price">320 грн</div>
+										<div class="card-item__price">120 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 									</div>
 									<div class="shop__card card-item">
@@ -111,7 +111,7 @@
 											class="card-item__img"
 										/>
 										<div class="card-item__name">Мило для рук</div>
-										<div class="card-item__price">540 грн</div>
+										<div class="card-item__price">40 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 									</div>
 									<div class="shop__card card-item">
@@ -121,7 +121,7 @@
 											class="card-item__img"
 										/>
 										<div class="card-item__name">Гель для прання</div>
-										<div class="card-item__price">1000 грн</div>
+										<div class="card-item__price">200 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 									</div>
 									<div class="shop__card card-item">
@@ -131,7 +131,7 @@
 											class="card-item__img"
 										/>
 										<div class="card-item__name">Рідина для миття посуду</div>
-										<div class="card-item__price">1000 грн</div>
+										<div class="card-item__price">1200 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 									</div>
 									<div class="shop__card card-item">
@@ -141,7 +141,7 @@
 											class="card-item__img"
 										/>
 										<div class="card-item__name">Гель для чищення туалету</div>
-										<div class="card-item__price">1000 грн</div>
+										<div class="card-item__price">110 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 									</div>
 									<div class="shop__card card-item">
@@ -318,8 +318,12 @@
 						<div class="footer__conacts">
 							<p class="footer__fop">Фізична особа-підприємець</p>
 							<p class="footer__name">Подоба Роман Миколайович</p>
-							<a href="https://maps.app.goo.gl/UodN9dVbsjB3iGyJ8" class="footer__adress">
-								81500, Львівська область, м.Городок вулиця В'ячеслава Чорновола 6
+							<a
+								href="https://maps.app.goo.gl/UodN9dVbsjB3iGyJ8"
+								class="footer__adress"
+							>
+								81500, Львівська область, м.Городок вулиця В'ячеслава Чорновола
+								6
 							</a>
 							<a href="tel:+380960466172" class="footer__number"
 								>+38 096 046 61 72</a
@@ -340,6 +344,24 @@
 				</div>
 			</footer>
 		</div>
+		<!-- корзина -->
+		<div class="cart-modal" id="cart-modal">
+			<div class="cart-modal__content">
+				<button class="cart-modal__close" id="cart-close">&times;</button>
+				<h2 class="cart-modal__title">Кошик</h2>
+				<div class="cart-modal__items" id="cart-items"></div>
+				<div class="cart-modal__empty" id="cart-empty">Кошик порожній</div>
+				<button class="cart-modal__order" id="cart-order" style="display: none">
+					Замовити
+				</button>
+				<form class="cart-modal__form" id="cart-form" style="display: none">
+					<input type="text" name="name" placeholder="Ваше ім'я" required />
+					<input type="tel" name="phone" placeholder="Телефон" required />
+					<button type="submit">Відправити</button>
+				</form>
+			</div>
+		</div>
+		<!-- /корзина -->
 		<script src="./js/script.js"></script>
 	</body>
 </html>
