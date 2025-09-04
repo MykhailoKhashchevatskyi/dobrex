@@ -177,6 +177,18 @@ html {
   }
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .hero {
   padding: 70px 0 70px 0;
   background: url(../img/biryza-bytli-min.jpg) left center no-repeat;
@@ -218,40 +230,17 @@ html {
     line-height: 60px;
   }
 }
-.hero__time::after {
-  position: absolute;
-  content: "";
-  background: url(../img/madeinua.webp) no-repeat;
-  background-size: contain;
-  width: 100px;
-  height: 100%;
-  right: 0px;
-  top: 50px;
-}
-@media (max-width: 1200px) {
-  .hero__time::after {
-    top: 45px;
-    right: 0px;
-  }
-}
-@media (max-width: 380px) {
-  .hero__time::after {
-    width: 50px;
-    top: 50px;
-    right: 0px;
-  }
-}
 
 .hero__title {
   text-transform: uppercase;
-  font-size: 44px;
+  font-size: 34px;
   font-weight: 800;
   margin: 0 0 30px 0;
   line-height: 45px;
 }
 @media (max-width: 1200px) {
   .hero__title {
-    font-size: 20px;
+    font-size: 16px;
     margin: 0 0 30px 0;
     line-height: 21px;
   }
@@ -327,6 +316,7 @@ html {
   aspect-ratio: 3/4;
   -o-object-fit: contain;
      object-fit: contain;
+  cursor: pointer;
   margin-bottom: 1em;
   border-bottom: 1px solid rgba(46, 229, 157, 0.4);
   border-radius: 10px;
@@ -488,6 +478,7 @@ html {
 }
 .why-card__image-block {
   margin: 0 24px 0 0;
+  font-size: 18px;
 }
 @media (max-width: 700px) {
   .why-card__image-block {
@@ -524,6 +515,17 @@ html {
   .why-card__description {
     font-size: 14px;
     text-align: center;
+  }
+}
+
+.width-img {
+  max-width: 60px;
+  padding: 10px 8px 0 4px;
+}
+@media (max-width: 700px) {
+  .width-img {
+    max-width: 35px;
+    padding: 10px 0 0 0;
   }
 }
 
