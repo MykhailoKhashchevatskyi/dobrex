@@ -3,8 +3,48 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./css/style.css" />
-
+		<meta
+			name="description"
+			content="DOBREX — український виробник професійної побутової хімії: гелі для прання, рідини для миття посуду, засоби для чищення. Екоякість, безпека, широкий асортимент, вигідні ціни. ☎️ +380960466172"
+		/>
+		<meta
+			name="keywords"
+			content="DOBREX, побутова хімія, український виробник, гель для прання, рідина для миття посуду, засіб для чищення, екохімія, купити, Україна, чистота, безпека, екологічно"
+		/>
+		<meta name="author" content="DOBREX, Подоба Роман Миколайович" />
+		<meta name="telephone" content="+380960466172" />
+		<meta name="robots" content="index, follow" />
+		<!-- <link rel="canonical" href="https://your-domain.com/" /> -->
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:phone_number" content="+380960466172" />
+		<!-- <meta property="og:url" content="https://your-domain.com/" /> -->
+		<meta
+			property="og:title"
+			content="DOBREX — Український виробник побутової хімії"
+		/>
+		<meta
+			property="og:description"
+			content="DOBREX — професійна побутова хімія для дому. Екоякість, безпека, широкий асортимент, вигідні ціни. Вироблено в Україні. ☎️ +380960466172"
+		/>
+		<meta
+			property="og:image"
+			content="https://your-domain.com/img/newlogo/2.svg"
+		/>
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="DOBREX — Український виробник побутової хімії"
+		/>
+		<meta
+			name="twitter:description"
+			content="DOBREX — професійна побутова хімія для дому. Екоякість, безпека, широкий асортимент, вигідні ціни. Вироблено в Україні. ☎️ +380960466172"
+		/>
+		<meta
+			name="twitter:image"
+			content="https://your-domain.com/img/newlogo/2.svg"
+		/>
 		<!-- Favicon basic -->
 		<link rel="icon" type="image/x-icon" href="./img/ico/favicon.ico" />
 		<link
@@ -19,14 +59,12 @@
 			sizes="32x32"
 			href="./img/ico/favicon-32x32.png"
 		/>
-
 		<!-- Apple Touch Icon -->
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
 			href="./img/ico/apple-touch-icon.png"
 		/>
-
 		<!-- Android / Chrome -->
 		<link
 			rel="icon"
@@ -40,11 +78,40 @@
 			sizes="512x512"
 			href="./img/ico/android-chrome-512x512.png"
 		/>
-
 		<!-- Web Manifest -->
 		<link rel="manifest" href="./img/ico/site.webmanifest" />
-
+		<!-- Alternate hreflang (якщо буде багатомовність) -->
+		<!-- <link rel="alternate" hreflang="uk" href="https://your-domain.com/" /> -->
+		<link rel="stylesheet" href="./css/style.css" />
 		<title>Dobrex - Український виробник побутової хімії!</title>
+		<!-- Schema.org JSON-LD Organization -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "DOBREX",
+				"url": "https://your-domain.com/",
+				"logo": "https://your-domain.com/img/newlogo/2.svg",
+				"contactPoint": [
+					{
+						"@type": "ContactPoint",
+						"telephone": "+380960466172",
+						"contactType": "customer service",
+						"areaServed": "UA",
+						"availableLanguage": ["Ukrainian", "Russian"]
+					}
+				],
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "вул. В'ячеслава Чорновола 6",
+					"addressLocality": "Городок",
+					"addressRegion": "Львівська область",
+					"postalCode": "81500",
+					"addressCountry": "UA"
+				},
+				"sameAs": ["https://www.facebook.com/dobrex.com.ua"]
+			}
+		</script>
 	</head>
 
 	<body>
@@ -61,7 +128,11 @@
 								/>
 							</a>
 						</div>
-						<nav class="header__menu">
+						<nav
+							class="header__menu"
+							aria-label="Головна навігація"
+							role="navigation"
+						>
 							<ul class="header__items">
 								<li class="header__item">
 									<a href="#" class="header__link">Головна</a>
@@ -80,7 +151,7 @@
 						<div class="header__ua">
 							<img
 								src="./img/madeinua.webp"
-								alt="зроблено в Україні"
+								alt="Зроблено в Україні — DOBREX побутова хімія"
 								class="header__ua-image"
 							/>
 						</div>
@@ -101,7 +172,7 @@
 						<div class="header__basket">
 							<img
 								src="./img/bass.svg"
-								alt="корзина"
+								alt="Кошик DOBREX — товари для дому"
 								class="header__basket-image"
 							/>
 							<span class="header__basket-count" id="basket-count">0</span>
@@ -119,7 +190,11 @@
 					<section class="hero">
 						<div class="container">
 							<div class="hero__wrapper">
-								<img class="hero__picture" src="./img/newlogo/5.svg" alt="" />
+								<img
+									class="hero__picture"
+									src="./img/newlogo/5.svg"
+									alt="DOBREX — професійна побутова хімія, логотип"
+								/>
 								<!-- <p class="hero__time">чисто.<br />добре.<br />dobrex</p> -->
 								<h1 class="hero__title visually-hidden">
 									Екоякість від українського виробника
@@ -136,7 +211,7 @@
 										<div class="card-item__img-wrapper">
 											<img
 												src="./img/items/kondicioner-dlya-tkanin.png"
-												alt="фото товару"
+												alt="Кондиціонер для тканини DOBREX, 2 л — фото товару"
 												class="card-item__img"
 											/>
 											<span class="card-item__label">2 л</span>
@@ -155,7 +230,7 @@
 										<div class="card-item__img-wrapper">
 											<img
 												src="./img/items/rid-mul.png"
-												alt="фото товару"
+												alt="Мило для рук DOBREX, 500 мл — фото товару"
 												class="card-item__img"
 											/>
 											<span class="card-item__label">500 мл</span>
@@ -172,7 +247,7 @@
 										<div class="card-item__img-wrapper">
 											<img
 												src="./img/items/gel-dlya-prannya.png"
-												alt="фото товару"
+												alt="Гель для прання DOBREX, 3 л — фото товару"
 												class="card-item__img"
 											/>
 											<span class="card-item__label">3 л</span>
@@ -189,7 +264,7 @@
 										<div class="card-item__img-wrapper">
 											<img
 												src="./img/items/ridina-dlya-mittya-posudu.png"
-												alt="фото товару"
+												alt="Рідина для миття посуду DOBREX, 1 л — фото товару"
 												class="card-item__img"
 											/>
 											<span class="card-item__label">1 л</span>
@@ -208,7 +283,7 @@
 										<div class="card-item__img-wrapper">
 											<img
 												src="./img/items/zasib-dlyz-ch.png"
-												alt="фото товару"
+												alt="Гель для чищення туалету DOBREX, 750 мл — фото товару"
 												class="card-item__img"
 											/>
 											<span class="card-item__label">750 мл</span>
@@ -245,7 +320,7 @@
 											<div class="why-card__image-block">
 												<img
 													src="./img/why/gerb.png"
-													alt="Українська символіка"
+													alt="Українська символіка DOBREX — підтримка українського виробника"
 													class="why-card__img width-img"
 												/>
 											</div>
@@ -263,7 +338,7 @@
 											<div class="why-card__image-block">
 												<img
 													src="./img/why/bezpeka-ta-yakist.png"
-													alt="іконка-безпека-та-якість"
+													alt="Безпека та якість DOBREX — іконка"
 													class="why-card__img"
 												/>
 											</div>
@@ -282,7 +357,7 @@
 											<div class="why-card__image-block">
 												<img
 													src="./img/why/shirokuy-asortiment.png"
-													alt="іконка-широкий-асортимент"
+													alt="Широкий асортимент DOBREX — іконка"
 													class="why-card__img"
 												/>
 											</div>
@@ -303,7 +378,7 @@
 											<div class="why-card__image-block">
 												<img
 													src="./img/why/visoka-efect.png"
-													alt="іконка-висока-ефективність"
+													alt="Висока ефективність DOBREX — іконка"
 													class="why-card__img"
 												/>
 											</div>
@@ -322,7 +397,7 @@
 											<div class="why-card__image-block">
 												<img
 													src="./img/why/economical.png"
-													alt="іконка-економічність"
+													alt="Економічність DOBREX — іконка"
 													class="why-card__img"
 												/>
 											</div>
@@ -340,7 +415,7 @@
 											<div class="why-card__image-block">
 												<img
 													src="./img/why/dovkillla.png"
-													alt="іконка-турбота-про-довкілля"
+													alt="Турбота про довкілля DOBREX — іконка"
 													class="why-card__img"
 												/>
 											</div>
@@ -389,12 +464,12 @@
 					<div class="footer__wrapper">
 						<div class="footer__logo">
 							<img
-								src="./img/newlogo/2.svg	"
-								alt="логотип dobrex"
+								src="./img/newlogo/2.svg"
+								alt="Логотип DOBREX — український виробник побутової хімії"
 								class="footer__image"
 							/>
 						</div>
-						<div class="footer__conacts">
+						<div class="footer__contacts">
 							<p class="footer__fop">Фізична особа-підприємець</p>
 							<p class="footer__name">Подоба Роман Миколайович</p>
 							<a
@@ -414,7 +489,7 @@
 						<div class="footer__license">
 							<img
 								src="./img/madeinua.webp"
-								alt="картинка - зроблено в Україні"
+								alt="Зроблено в Україні — DOBREX побутова хімія"
 								class="footer__made-ua"
 							/>
 							<p class="footer__rights">© DOBREX 2025 All rights reserved</p>
