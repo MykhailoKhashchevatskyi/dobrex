@@ -15,9 +15,9 @@
 	}
 
 	&__logo-image {
-		max-width: 170px;
+		width: 170px;
 		@media (max-width: 1200px) {
-			max-width: 100px;
+			width: 100px;
 		}
 	}
 

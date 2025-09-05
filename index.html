@@ -4,8 +4,49 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/style.css" />
+
+		<!-- Favicon basic -->
+		<link rel="icon" type="image/x-icon" href="./img/ico/favicon.ico" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./img/ico/favicon-16x16.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./img/ico/favicon-32x32.png"
+		/>
+
+		<!-- Apple Touch Icon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./img/ico/apple-touch-icon.png"
+		/>
+
+		<!-- Android / Chrome -->
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="./img/ico/android-chrome-192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="./img/ico/android-chrome-512x512.png"
+		/>
+
+		<!-- Web Manifest -->
+		<link rel="manifest" href="./img/ico/site.webmanifest" />
+
 		<title>Dobrex - Український виробник побутової хімії!</title>
 	</head>
+
 	<body>
 		<div class="wrapper">
 			<header class="header" id="header">
@@ -14,7 +55,7 @@
 						<div class="header__logo">
 							<a href="index.html">
 								<img
-									src="./img/logo-dobrex.webp"
+									src="./img/newlogo/2.svg"
 									alt="логотип Dobrex"
 									class="header__logo-image"
 								/>
@@ -78,7 +119,8 @@
 					<section class="hero">
 						<div class="container">
 							<div class="hero__wrapper">
-								<p class="hero__time">чисто.<br />добре.<br />dobrex</p>
+								<img class="hero__picture" src="./img/newlogo/5.svg" alt="" />
+								<!-- <p class="hero__time">чисто.<br />добре.<br />dobrex</p> -->
 								<h1 class="hero__title visually-hidden">
 									Екоякість від українського виробника
 								</h1>
@@ -91,76 +133,94 @@
 								<h2 class="shop__title">Продукція</h2>
 								<div class="shop__box">
 									<div class="shop__card card-item">
-										<img
-											src="./img/items/kondicioner-dlya-tkanin.png"
-											alt="фото товару"
-											class="card-item__img"
-										/>
-										<div class="card-item__name">Кондиціонер для тканини</div>
+										<div class="card-item__img-wrapper">
+											<img
+												src="./img/items/kondicioner-dlya-tkanin.png"
+												alt="фото товару"
+												class="card-item__img"
+											/>
+											<span class="card-item__label">2 л</span>
+										</div>
+										<div class="card-item__name">
+											Кондиціонер для тканини, 2 л
+										</div>
 										<div class="card-item__price">120 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 										<div class="card-item__desc" style="display: none">
-											Тут детальна інформація про товар.
+											Додає м'якості та приємного аромату вашим речам. Підходить
+											для всіх типів тканин.
 										</div>
 									</div>
 									<div class="shop__card card-item">
-										<img
-											src="./img/items/rid-mul.png"
-											alt="фото товару"
-											class="card-item__img"
-										/>
-										<div class="card-item__name">Мило для рук</div>
+										<div class="card-item__img-wrapper">
+											<img
+												src="./img/items/rid-mul.png"
+												alt="фото товару"
+												class="card-item__img"
+											/>
+											<span class="card-item__label">500 мл</span>
+										</div>
+										<div class="card-item__name">Мило для рук, 500 мл</div>
 										<div class="card-item__price">40 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 										<div class="card-item__desc" style="display: none">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit.
-											Voluptate hic perferendis cum reiciendis, perspiciatis
-											beatae dolores recusandae asperiores maxime aliquid.
+											Делікатно очищає шкіру, не пересушує, має приємний аромат.
+											Підходить для щоденного використання.
 										</div>
 									</div>
 									<div class="shop__card card-item">
-										<img
-											src="./img/items/gel-dlya-prannya.png"
-											alt="фото товару"
-											class="card-item__img"
-										/>
-										<div class="card-item__name">Гель для прання</div>
+										<div class="card-item__img-wrapper">
+											<img
+												src="./img/items/gel-dlya-prannya.png"
+												alt="фото товару"
+												class="card-item__img"
+											/>
+											<span class="card-item__label">3 л</span>
+										</div>
+										<div class="card-item__name">Гель для прання, 3 л</div>
 										<div class="card-item__price">200 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 										<div class="card-item__desc" style="display: none">
-											Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-											Voluptatibus soluta, laudantium fugit totam quisquam ab
-											dolores tempora nostrum! Rem, error!
+											Ефективно видаляє забруднення навіть у холодній воді.
+											Підходить для кольорових і білих речей.
 										</div>
 									</div>
 									<div class="shop__card card-item">
-										<img
-											src="./img/items/ridina-dlya-mittya-posudu.png"
-											alt="фото товару"
-											class="card-item__img"
-										/>
-										<div class="card-item__name">Рідина для миття посуду</div>
+										<div class="card-item__img-wrapper">
+											<img
+												src="./img/items/ridina-dlya-mittya-posudu.png"
+												alt="фото товару"
+												class="card-item__img"
+											/>
+											<span class="card-item__label">1 л</span>
+										</div>
+										<div class="card-item__name">
+											Рідина для миття посуду, 1 л
+										</div>
 										<div class="card-item__price">70 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 										<div class="card-item__desc" style="display: none">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit.
-											Totam temporibus inventore nesciunt, praesentium delectus
-											vel quae dignissimos illum neque tempora.
+											Легко справляється з жиром, не залишає розводів. Має
+											приємний аромат і легко змивається.
 										</div>
 									</div>
 									<div class="shop__card card-item">
-										<img
-											src="./img/items/zasib-dlyz-ch.png"
-											alt="фото товару"
-											class="card-item__img"
-										/>
-										<div class="card-item__name">Гель для чищення туалету</div>
+										<div class="card-item__img-wrapper">
+											<img
+												src="./img/items/zasib-dlyz-ch.png"
+												alt="фото товару"
+												class="card-item__img"
+											/>
+											<span class="card-item__label">750 мл</span>
+										</div>
+										<div class="card-item__name">
+											Гель для чищення туалету, 750 мл
+										</div>
 										<div class="card-item__price">110 грн</div>
 										<div class="card-item__btn">Додати в кошик</div>
 										<div class="card-item__desc" style="display: none">
-											Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-											Adipisci illum tenetur voluptate nemo magnam placeat
-											veniam necessitatibus maiores et magni.
+											Глибоко очищає та дезінфікує, залишає свіжий аромат.
+											Допомагає підтримувати ідеальну чистоту.
 										</div>
 									</div>
 									<div class="shop__card card-item">
@@ -329,7 +389,7 @@
 					<div class="footer__wrapper">
 						<div class="footer__logo">
 							<img
-								src="./img/logo-dobrex.webp"
+								src="./img/newlogo/2.svg	"
 								alt="логотип dobrex"
 								class="footer__image"
 							/>
