@@ -83,17 +83,27 @@ function updateBasketCount() {
 // Рендер корзини
 function renderCart() {
 	cartItemsBox.innerHTML = '';
+	const cartTotalBlock = document.getElementById('cart-total');
+	const cartTotalSum = document.getElementById('cart-total-sum');
 	if (cart.length === 0) {
 		cartEmpty.style.display = '';
 		cartOrderBtn.style.display = 'none';
+		if (cartTotalBlock) cartTotalBlock.style.display = 'none';
 		updateBasketCount();
 		return;
 	}
 	cartEmpty.style.display = 'none';
 	cartOrderBtn.style.display = '';
+	let total = 0;
 	cart.forEach((item, idx) => {
 		const div = document.createElement('div');
 		div.className = 'cart-modal__item';
+		// Витягуємо число з ціни (наприклад, "126.50 грн" -> 126.50)
+		let priceNum = parseFloat(
+			(item.price + '').replace(/[^\d.,]/g, '').replace(',', '.')
+		);
+		if (isNaN(priceNum)) priceNum = 0;
+		total += priceNum * item.qty;
 		div.innerHTML = `
       <span class="cart-modal__item-name">${item.name}</span>
       <input type="number" min="1" value="${item.qty}" class="cart-modal__item-qty" data-idx="${idx}">
@@ -102,6 +112,10 @@ function renderCart() {
     `;
 		cartItemsBox.appendChild(div);
 	});
+	if (cartTotalBlock && cartTotalSum) {
+		cartTotalSum.textContent = total.toFixed(2) + ' грн';
+		cartTotalBlock.style.display = '';
+	}
 	updateBasketCount();
 }
 
