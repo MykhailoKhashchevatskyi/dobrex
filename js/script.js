@@ -19,6 +19,36 @@ const GOOGLE_SHEET_ENDPOINT =
 	'https://script.google.com/macros/s/AKfycbzMUTHaWjrg7fB0sb1g0sRrph_NqC28axSlfSufXtlWkzI9AVgsC9tOsUPmnwAkXzVE/exec';
 // ======================================
 
+// Універсальне очищення тексту (прибираємо перенос рядків, таби, зайві пробіли)
+function cleanText(str) {
+	return (str || '')
+		.toString()
+		.replace(/[\r\n\t]+/g, ' ') // прибрати переноси/таби
+		.replace(/\s{2,}/g, ' ') // кілька пробілів -> один
+		.replace(/\s+,/g, ',') // пробіл перед комою
+		.replace(/,\s+/g, ', ') // один пробіл після коми
+		.trim();
+}
+
+// Побудова читабельного рядка без зайвих пробілів / переносів
+function buildItemsReadable(items) {
+	return items
+		.map(i => {
+			const cleanName = cleanText(i.name);
+			let num = parseFloat(
+				String(i.price)
+					.replace(/[^\d.,]/g, '')
+					.replace(',', '.')
+			);
+			if (isNaN(num)) num = 0;
+			const priceStr = num % 1 === 0 ? num.toFixed(0) : num.toFixed(2);
+			return `${cleanName} x${i.qty} @ ${priceStr} грн`;
+		})
+		.join('; ')
+		.replace(/\s{2,}/g, ' ') // фінальний прохід
+		.trim();
+}
+
 // Відкрити корзину
 cartBasket.addEventListener('click', () => {
 	cartModal.classList.add('open');
@@ -41,9 +71,11 @@ function closeCart() {
 document.querySelectorAll('.card-item__btn').forEach((btn, idx) => {
 	btn.addEventListener('click', e => {
 		const card = btn.closest('.card-item');
-		const name = card.querySelector('.card-item__name').textContent;
-		const price = card.querySelector('.card-item__price').textContent;
-		const id = name;
+		const name = cleanText(card.querySelector('.card-item__name').textContent);
+		const price = cleanText(
+			card.querySelector('.card-item__price').textContent
+		);
+		const id = name; // вже очищений -> стабільний ключ
 		let item = cart.find(i => i.id === id);
 		if (item) {
 			item.qty += 1;
@@ -170,18 +202,20 @@ cartForm.addEventListener('submit', e => {
 
 	const formData = new FormData(cartForm);
 	// Формуємо payload
+	const cleanedCart = cart.map(i => ({
+		name: cleanText(i.name),
+		price: cleanText(i.price),
+		qty: i.qty,
+	}));
 	const orderData = {
-		name: (formData.get('name') || '').toString().trim(),
-		surname: (formData.get('surname') || '').toString().trim(),
-		city: (formData.get('city') || '').toString().trim(),
-		np_branch: (formData.get('np_branch') || '').toString().trim(),
-		phone: (formData.get('phone') || '').toString().trim(),
-		items: cart.map(i => ({
-			name: i.name,
-			price: i.price,
-			qty: i.qty,
-		})),
-		total: cart.reduce((sum, i) => {
+		name: cleanText(formData.get('name')),
+		surname: cleanText(formData.get('surname')),
+		city: cleanText(formData.get('city')),
+		np_branch: cleanText(formData.get('np_branch')),
+		phone: cleanText(formData.get('phone')),
+		items: cleanedCart,
+		items_readable: buildItemsReadable(cleanedCart),
+		total: cleanedCart.reduce((sum, i) => {
 			let p = parseFloat(
 				String(i.price)
 					.replace(/[^\d.,]/g, '')
@@ -381,3 +415,40 @@ function closeProductModal() {
 	productModal.style.display = 'none';
 	document.body.style.overflow = '';
 }
+
+// === Вирівнювання висот карток у блоці "чому DOBREX" ===
+function equalizeWhyCards() {
+	// На вузьких екранах (коли колонки стають одна під одною) скидаємо стилі
+	if (window.innerWidth <= 1100) {
+		document.querySelectorAll('.why-card').forEach(c => {
+			c.style.minHeight = '';
+			c.style.height = '';
+		});
+		return;
+	}
+	const leftCards = document.querySelectorAll('.why__left .why-card');
+	const rightCards = document.querySelectorAll('.why__right .why-card');
+	if (!leftCards.length || !rightCards.length) return;
+	const pairCount = Math.min(leftCards.length, rightCards.length);
+	// Скидаємо перед перерахунком
+	[...leftCards, ...rightCards].forEach(c => {
+		c.style.minHeight = '';
+		c.style.height = '';
+	});
+	for (let i = 0; i < pairCount; i++) {
+		const l = leftCards[i];
+		const r = rightCards[i];
+		const maxH = Math.max(l.offsetHeight, r.offsetHeight);
+		l.style.minHeight = r.style.minHeight = maxH + 'px';
+	}
+}
+
+// Запуск після повного завантаження стилів / контенту
+window.addEventListener('load', () => {
+	equalizeWhyCards();
+});
+window.addEventListener('resize', () => {
+	equalizeWhyCards();
+});
+// Можливо контент змінюється (шрифти / картинки) – додаткова затримка
+setTimeout(equalizeWhyCards, 800);

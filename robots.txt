@@ -1,3 +1,9 @@
 User-agent: *
-Disallow:
 Allow: /
+
+# Заборонені технічні файли (приклад — зараз немає, залишено як шаблон)
+# Disallow: /admin/
+# Disallow: /tmp/
+
+Sitemap: https://dobrex.com.ua/sitemap.xml
+Host: dobrex.com.ua

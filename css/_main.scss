@@ -431,7 +431,7 @@
 	align-items: flex-start;
 	background: #fff;
 	border-radius: 18px;
-	box-shadow: 0 4px 24px #36463d12, 0 1.5px 8px #27383122;
+	box-shadow: 0 4px 24px #22b46112, 0 1.5px 8px #28d88f22;
 	padding: 28px 32px;
 	gap: 24px;
 	transition: box-shadow 0.25s, transform 0.18s;
@@ -499,7 +499,7 @@
 		margin: 0 0 20px 0;
 		border-radius: 20px;
 		padding: 0 5px 15px;
-		box-shadow: 0 1px 4px rgba(13, 18, 16, 0.8), 0 0 1px #27ae60;
+		box-shadow: 0 1px 4px rgba(52, 184, 131, 0.326), 0 0 1px #27ae5f18;
 	}
 	&__image-block {
 		margin: 0 24px 0 0;
@@ -1049,5 +1049,110 @@
 			font-size: 0.9em;
 			margin-bottom: 6px;
 		}
+	}
+}
+
+// =============================
+// Великі екрани: збільшені картки товарів
+// =============================
+@media (min-width: 1400px) {
+	.shop__box {
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 26px;
+	}
+	.card-item {
+		max-width: 340px;
+		padding: 1.5em 1.2em 1.6em;
+		font-size: clamp(1rem, 1.05vw, 1.28rem); // базовий масштаб типографії
+		border-radius: 20px;
+	}
+	.card-item__img {
+		max-width: 95%;
+		margin-bottom: 1.25em;
+		aspect-ratio: 3/4; // зберігаємо пропорції
+	}
+	.card-item__name {
+		font-size: 1.18em;
+		line-height: 1.05;
+		margin-bottom: 0.9em;
+	}
+	.card-item__price {
+		font-size: 1.1em;
+		margin-bottom: 14px;
+	}
+	.card-item__btn {
+		font-size: 0.62em; // відносно збільшеної бази -> візуально більша кнопка
+		padding: 1.5em 3.4em;
+		letter-spacing: 1px;
+	}
+	.card-item__label {
+		font-size: 1.05em;
+		padding: 4px 16px;
+		bottom: 26px;
+	}
+}
+
+// Дуже великі (ультра) екрани – ще трохи масштабуємо (не агресивно)
+@media (min-width: 1700px) {
+	.shop__box {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 34px;
+	}
+	.card-item {
+		max-width: 390px; /* трохи ширше, щоб не здавалась меншою */
+		font-size: clamp(
+			1.1rem,
+			0.85vw + 0.25rem,
+			1.45rem
+		); /* зростає з шириною екрана */
+		padding: 1.65em 1.35em 1.75em;
+	}
+	.card-item__img {
+		max-width: 100%;
+		margin-bottom: 1.35em;
+	}
+	.card-item__name {
+		font-size: 1.25em;
+	}
+	.card-item__price {
+		font-size: 1.18em;
+		margin-bottom: 16px;
+	}
+	.card-item__btn {
+		font-size: 0.66em;
+		padding: 1.6em 3.8em;
+		letter-spacing: 1.05px;
+	}
+	.card-item__label {
+		font-size: 1.08em;
+	}
+}
+
+/* Після 1994px фіксуємо типографіку (не росте далі) */
+@media (min-width: 1995px) {
+	.shop__box {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 36px;
+	}
+	.card-item {
+		max-width: 400px;
+		font-size: 1.31rem; /* зафіксоване середнє значення */
+		padding: 1.65em 1.35em 1.75em;
+	}
+	.card-item__img {
+		max-width: 100%;
+	}
+	.card-item__name {
+		font-size: 1.25em;
+	}
+	.card-item__price {
+		font-size: 1.18em;
+	}
+	.card-item__btn {
+		font-size: 0.66em;
+		padding: 1.6em 3.8em;
+	}
+	.card-item__label {
+		font-size: 1.08em;
 	}
 }
