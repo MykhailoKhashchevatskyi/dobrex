@@ -615,8 +615,42 @@
 					Замовити
 				</button>
 				<form class="cart-modal__form" id="cart-form" style="display: none">
-					<input type="text" name="name" placeholder="Ваше ім'я" required />
-					<input type="tel" name="phone" placeholder="Телефон" required />
+					<input
+						type="text"
+						name="name"
+						placeholder="Ваше ім'я"
+						autocomplete="given-name"
+						required
+					/>
+					<input
+						type="text"
+						name="surname"
+						placeholder="Прізвище"
+						autocomplete="family-name"
+						required
+					/>
+					<input
+						type="text"
+						name="city"
+						placeholder="Місто"
+						autocomplete="address-level2"
+						required
+					/>
+					<input
+						type="text"
+						name="np_branch"
+						placeholder="№ відділення Нової Пошти"
+						pattern="^[0-9]{1,4}$"
+						title="Введіть номер від 1 до 9999"
+						required
+					/>
+					<input
+						type="tel"
+						name="phone"
+						placeholder="Телефон"
+						autocomplete="tel"
+						required
+					/>
 					<button type="submit">Відправити</button>
 				</form>
 				<div

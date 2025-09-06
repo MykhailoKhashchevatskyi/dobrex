@@ -46,6 +46,9 @@
 		font-size: 1.1em;
 		line-height: 1.1em;
 		margin: 0 0 10px 0;
+		@media (max-width: 1300px){
+			text-align: center;
+		}
 	}
 
 	&__number {

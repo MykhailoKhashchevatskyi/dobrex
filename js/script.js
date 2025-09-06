@@ -14,6 +14,11 @@ const cartMessage = document.getElementById('cart-message');
 
 let cart = [];
 
+// === Google Sheets Web App endpoint ===
+const GOOGLE_SHEET_ENDPOINT =
+	'https://script.google.com/macros/s/AKfycbzMUTHaWjrg7fB0sb1g0sRrph_NqC28axSlfSufXtlWkzI9AVgsC9tOsUPmnwAkXzVE/exec';
+// ======================================
+
 // Відкрити корзину
 cartBasket.addEventListener('click', () => {
 	cartModal.classList.add('open');
@@ -104,12 +109,18 @@ function renderCart() {
 		);
 		if (isNaN(priceNum)) priceNum = 0;
 		total += priceNum * item.qty;
+		// Нормалізуємо відображення ціни до формату 0.00 грн
+		let displayPrice = parseFloat(
+			(item.price + '').replace(/[^\d.,]/g, '').replace(',', '.')
+		);
+		if (isNaN(displayPrice)) displayPrice = 0;
+		const formattedPrice = displayPrice.toFixed(2) + ' грн';
 		div.innerHTML = `
-      <span class="cart-modal__item-name">${item.name}</span>
-      <input type="number" min="1" value="${item.qty}" class="cart-modal__item-qty" data-idx="${idx}">
-      <span>${item.price}</span>
-      <button class="cart-modal__item-remove" data-idx="${idx}">&times;</button>
-    `;
+	<span class="cart-modal__item-name" title="${item.name}">${item.name}</span>
+	<input type="number" min="1" value="${item.qty}" class="cart-modal__item-qty" data-idx="${idx}">
+	<span class="cart-modal__item-price">${formattedPrice}</span>
+	<button class="cart-modal__item-remove" data-idx="${idx}" aria-label="Видалити позицію">&times;</button>
+	    `;
 		cartItemsBox.appendChild(div);
 	});
 	if (cartTotalBlock && cartTotalSum) {
@@ -148,19 +159,93 @@ cartOrderBtn.addEventListener('click', () => {
 // Відправка форми (зараз просто очищає корзину)
 cartForm.addEventListener('submit', e => {
 	e.preventDefault();
-	cart = [];
-	renderCart();
-	cartForm.reset();
-	cartForm.style.display = 'none';
-	// alert("Дякуємо за замовлення! Ми зв'яжемось з вами найближчим часом.");
-	cartMessage.textContent =
-		"Дякуємо за замовлення! Ми зв'яжемось з вами найближчим часом.";
-	cartMessage.style.display = '';
-	setTimeout(() => {
-		cartMessage.style.display = 'none';
-		closeCart();
-	}, 2500);
-	updateBasketCount();
+
+	// Якщо корзина порожня – не відправляємо
+	if (!cart.length) return;
+
+	const submitBtn = cartForm.querySelector('button[type="submit"]');
+	const originalBtnText = submitBtn.textContent;
+	submitBtn.disabled = true;
+	submitBtn.textContent = 'Відправка...';
+
+	const formData = new FormData(cartForm);
+	// Формуємо payload
+	const orderData = {
+		name: (formData.get('name') || '').toString().trim(),
+		surname: (formData.get('surname') || '').toString().trim(),
+		city: (formData.get('city') || '').toString().trim(),
+		np_branch: (formData.get('np_branch') || '').toString().trim(),
+		phone: (formData.get('phone') || '').toString().trim(),
+		items: cart.map(i => ({
+			name: i.name,
+			price: i.price,
+			qty: i.qty,
+		})),
+		total: cart.reduce((sum, i) => {
+			let p = parseFloat(
+				String(i.price)
+					.replace(/[^\d.,]/g, '')
+					.replace(',', '.')
+			);
+			if (isNaN(p)) p = 0;
+			return sum + p * i.qty;
+		}, 0),
+		created_at: new Date().toISOString(),
+		client_user_agent: navigator.userAgent,
+	};
+
+	// Функція показу повідомлення
+	function showMessage(text, ok = true) {
+		cartMessage.textContent = text;
+		cartMessage.style.display = '';
+		cartMessage.style.color = ok ? '#1a7f37' : '#b00020';
+		cartMessage.classList.remove('show');
+		void cartMessage.offsetWidth;
+		cartMessage.classList.add('show');
+	}
+
+	// Відправка в Google Sheets (simple request: Content-Type text/plain => без preflight)
+	(() => {
+		// Перевірка що endpoint замінений
+		if (
+			!GOOGLE_SHEET_ENDPOINT ||
+			GOOGLE_SHEET_ENDPOINT.includes('PASTE_GOOGLE')
+		) {
+			showMessage('Налаштуйте Google Sheets endpoint.', false);
+			submitBtn.disabled = false;
+			submitBtn.textContent = originalBtnText;
+			return;
+		}
+		// Fire & forget: no-cors => не читаємо відповідь, вважаємо успішно якщо не зловили network error
+		fetch(GOOGLE_SHEET_ENDPOINT, {
+			method: 'POST',
+			mode: 'no-cors', // opaque відповідь, недоступна для читання
+			headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+			body: JSON.stringify(orderData),
+		})
+			.then(() => {
+				showMessage(
+					"Дякуємо за замовлення! Ми зв'яжемось з вами найближчим часом.",
+					true
+				);
+				cart = [];
+				renderCart();
+				cartForm.reset();
+				cartForm.style.display = 'none';
+				setTimeout(() => {
+					cartMessage.style.display = 'none';
+					closeCart();
+				}, 3000);
+			})
+			.catch(() => {
+				showMessage('Не вдалося відправити. Перевірте інтернет.', false);
+			})
+			.finally(() => {
+				updateBasketCount();
+				submitBtn.disabled = false;
+				submitBtn.textContent = originalBtnText;
+			});
+	})();
 });
 
 burgerMenu.addEventListener('click', () => {

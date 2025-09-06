@@ -708,6 +708,38 @@
 		outline: none;
 		transition: border-color 0.2s;
 		background: #f8fff9;
+		width: 100%;
+		box-sizing: border-box;
+		max-width: 100%;
+	}
+
+	.cart-modal__form input:invalid[pattern] {
+		border-color: #e67e22;
+		background: #fff9f2;
+	}
+
+	@media (min-width: 540px) {
+		.cart-modal__form {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+		}
+		.cart-modal__form input[name='name'],
+		.cart-modal__form input[name='surname'] {
+			grid-column: span 1;
+		}
+		.cart-modal__form input[name='city'] {
+			grid-column: span 1;
+		}
+		.cart-modal__form input[name='np_branch'] {
+			grid-column: span 1;
+		}
+		.cart-modal__form input[name='phone'] {
+			grid-column: span 2;
+		}
+		.cart-modal__form button[type='submit'] {
+			grid-column: span 2;
+		}
 	}
 
 	.cart-modal__form input[type='text']:focus,
@@ -775,27 +807,151 @@
 }
 
 .cart-modal__message {
-	background: #eaffea;
-	color: #27ae60;
-	border: 1.5px solid #27ae60;
-	border-radius: 10px;
-	padding: 18px 12px;
-	margin: 18px 0 0 0;
-	text-align: center;
-	font-size: 1.15em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 12px;
+	padding: 14px 18px;
+	background: linear-gradient(135deg, #e9fbf4, #ffffff);
+	border: 1px solid #c5f0df;
+	border-radius: 14px;
+	box-shadow: 0 4px 18px -4px #20c98033, 0 2px 6px -2px #0e6f4e22;
+	font-size: 1.05em;
 	font-weight: 600;
-	box-shadow: 0 2px 8px #2ee59d22;
-	animation: fadeInCartMsg 0.5s;
-}
-@keyframes fadeInCartMsg {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	to {
+	color: #137a4f;
+	line-height: 1.3;
+	text-align: center;
+	width: 100%;
+	max-width: 100%;
+	animation: fadeInCartMsg 0.45s ease;
+	opacity: 0;
+	&.show {
 		opacity: 1;
-		transform: translateY(0);
 	}
+	pointer-events: none;
+	span,
+	br {
+		pointer-events: none;
+	}
+}
+
+@keyframes fadeInCartMsg {
+	0% {
+		opacity: 0;
+		transform: translateY(10px) scale(0.97);
+	}
+	60% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// =============================
+// Cart (корзина) layout fixes
+// =============================
+
+.cart-modal__item {
+	display: grid;
+	/* name | qty | price (fixed) | remove */
+	grid-template-columns: 1fr 58px 78px 32px; // name | qty | price | remove
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 8px;
+	transition: background 0.18s ease;
+	&:hover {
+		background: #f7fdfb;
+	}
+}
+
+.cart-modal__item-name {
+	flex: 1 1 auto;
+	min-width: 0;
+	font-weight: 500;
+	line-height: 1.25;
+	word-break: break-word;
+	overflow-wrap: anywhere;
+	white-space: normal;
+	font-size: 0.95em;
+	max-height: 3.9em; // ~3 lines
+	overflow: hidden;
+	position: relative;
+	mask-image: linear-gradient(180deg, #000 85%, rgba(0, 0, 0, 0.15));
+}
+
+.cart-modal__item-qty {
+	width: 58px;
+	text-align: center;
+	padding: 4px 4px;
+	border: 1px solid #d9eae3;
+	border-radius: 8px;
+	font-size: 0.9em;
+	background: #fff;
+	transition: border-color 0.18s, box-shadow 0.18s;
+	&:focus {
+		outline: none;
+		border-color: #23c483;
+		box-shadow: 0 0 0 2px #23c48333;
+	}
+}
+
+.cart-modal__item-price {
+	font-weight: 600;
+	font-size: 0.95em;
+	color: #23c483;
+	white-space: nowrap;
+	justify-self: end;
+	width: 78px; /* синхронно з grid */
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+.cart-modal__item-remove {
+	background: none;
+	border: none;
+	color: #e74c3c;
+	font-size: 1.3em;
+	line-height: 1;
+	cursor: pointer;
+	padding: 2px;
+	border-radius: 6px;
+	transition: background 0.2s, transform 0.15s;
+	&:hover {
+		background: #ffe8e5;
+	}
+	&:active {
+		transform: scale(0.85);
+	}
+}
+
+// Двоколонне розташування лише коли екран достатньо широкий, а сам блок ширший ніж 480px
+@media (min-width: 680px) {
+	.cart-modal__form {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 12px;
+	}
+	.cart-modal__form input[name='name'],
+	.cart-modal__form input[name='surname'],
+	.cart-modal__form input[name='city'],
+	.cart-modal__form input[name='np_branch'] {
+		grid-column: span 1;
+	}
+	.cart-modal__form input[name='phone'],
+	.cart-modal__form button[type='submit'] {
+		grid-column: span 2;
+	}
+}
+
+// Запобігаємо горизонтальному скролу всередині контенту модалки
+.cart-modal__content,
+.cart-modal__form {
+	overflow-x: hidden;
 }
 
 .product-modal {
